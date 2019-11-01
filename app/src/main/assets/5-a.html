@@ -1,0 +1,168 @@
+<body style="background-color:#303030;">
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+		color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>1. Define Graph. (Remember)</h3>
+<ul>
+    <li>A graph G = (V, E) consists of a set of vertices, V, and a set of edges, E.
+    <li>Each edge is a pair (v,w), where v,w are vertices. Edges are sometimes referred to as arcs.
+    <li>If the pair is ordered, then the graph is directed. Directed graphs are sometimes referred to as digraphs.
+        <img src="five1.png" style="width:300px;height:250px">
+</ul>
+<h3>2. Write down the applications of graphs. (Remember)</h3>
+<ul>
+    <li>Traveling Salesman Problem
+    <Li>Finding shortest path in communication networks
+    <li>Traffic Network Design
+    <li>Assignment Problems
+    <li>Scheduling Problems
+    <li>DNA sequencing
+    <li>Dominating Sets
+</ul>
+<h3>3. Define following Terms: (Remember)</h3>
+<ul>
+    <Li>Loop : An edge from a node to itself (v,v) is called loop
+    <li>Edge:It is a pair (v,w), where v,w are vertices and there exist a line from vertex v to vertex w in the given graph. Edges are sometimes referred to as arcs
+    <li>Path:A path in a graph is a sequence of vertices w1, w2, w3, . . . ,wnsuch that (wi, wi+1) Є E (set of edges in the graph) for 1<= i< n. The length of such a path is the number of edges on the path, which is equal to n – 1.
+    <li>Adjacency:Vertex w is adjacent to v if and only if (v,w)ЄE. In an undirected graph with edge (v,w), w is adjacent to v and v is adjacent to w
+    <li>Cycle:A cycle in a directed graph is a path of length at least 1 such thatv1= vn. That is the path starts and ends at same node.
+
+    <li>Directed graph: A directed graph/digraph is an ordered pair G = (V, A) where V is a set whose elements are called vertices, nodes, or points; A is a set of ordered pairs of vertices, called arrows or directed edges. To state simply, a digraph is a graph where the edges have a direction associated with them.
+    <li>Undirected Graph:All edges in an undirected graph have no directions and hence the edges are bidirectional.
+    <li>Weighted Graph: A weighted graph is a graph in which a number (the weight) is assigned to each edge. Such weights might represent for example costs, lengths or capacities, depending on the problem at hand.
+    <li>Acyclic Graph: A graph that has no cycles is called acyclic graph. In case of directed graph, there are no cycles then it is called DAG-Directed Acyclic graph.
+    <li>In degree: The in degree of a vertex is the number of arcs leading to that vertex and pointed towards that vertex.
+    <Li>Out degree: The outdegree of a vertex is the number of arcs leading away from that vertex.
+    <li>Degree: The degree of a vertex of a graph is the number of edges incident to the vertex with loops counted twice.
+</ul>
+        <h3>4. Write the various ways to represent a graph. (Remember)</h3>
+        <ul>
+            <Li>Adjacency matrix representation
+            <li>Adjacency list representation
+        </ul>
+        <h3>5. Write about adjacency matrix (Understand) .</h3>
+        <p>Each graph of n nodes is represented by an n x n matrix called Adjacency matrix in which</p>
+    <li>A[i][j] = 1 if (i,j) is an edge
+    <Li>A[i][j] = 0 if (i,j) is not an edge
+        <p>In case of weighted graph</p>
+    <li>A[i][j] = c if (i,j) is an edge and c is the cost associated with that edge
+    <Li>A[i][j] = ∞ if (i,j) is not an edge
+        <p>Example :</p>
+        <img src="five2.png" style="width:300px;height:250px">
+        <h3>6. Write the adjacency matrix for following graphs. (left as exercise for students)(Apply)</h3>
+        <img src="five3.png" style="width:300px;height:250px">
+        <h3>7. Write about adjacency list (Understand)</h3>
+        <p>A graph of n nodes is represented by a one-dimensional array L of linked lists, where L[i] is the linked list containing all the nodes adjacent from node i. The nodes in the list L[i] are in no particular order.</p>
+        <p>Example:</p>
+        <img src="five4.png" style="width:300px;height:250px">
+        <p>Note : In case of weighted graph, additional field can be added in every node in the list to hold weight of every edge.</p>
+        <h3>8. Write the adjacency list for following graphs. [Left as exercise for students] (Apply)</h3>
+        <img src="five5.png" style="width:300px;height:250px">
+        <h3>9. What is meant by connected graph? Give Example. (Remember)</h3>
+        <p>An undirected graph is said to be connected if there is a path from every vertex to every other vertex.</p>
+        <p>Example :</p>
+        <img src="five6.png" style="width:300px;height:250px">
+        <h3>10. What is meant by strongly connected graph? Give Example. (Remember)</h3>
+        <p>Andigraph is said to be strongly connected if there is a path from every vertex to every other vertex.</p>
+        <p>Example :</p>
+        <img src="five7.png" style="width:300px;height:250px">
+        <h3>11. What is meant by weakly connected graph? Give Example. (Remember)</h3>
+        <p>If a directed graph is not strongly connected, but the underlying graph (without direction to the arcs) is connected, then the graph is said to be weakly connected.</p>
+        <p>Example :</p>
+        <img src="five8.png" style="width:300px;height:250px">
+        <h3>12. Name the graph traversal techniques. (Remember)</h3>
+        <ul>
+            <li>Depth First Search
+            <li>Breadth First Search
+            <li>Topological Sorting
+        </ul>
+        <h3>13. Write the algorithm for DFS. (Remember)</h3>
+        <ul>
+            <li>Select an unvisited node x, visit it, and treat as the current node
+            <li>Find an unvisited neighbor of the current node, visit it, and make it as the new current node;
+            <li>If the current node has no unvisited neighbors, backtrack to its parent, and make that parent the new current node;
+            <li>Repeat steps 3 and 4 until no more nodes can be visited.
+            <li>If there are still unvisited nodes, repeat from step 1.
+        </ul>
+        <h3>14. Write the DFS traversal for following graph. (To be done by students) (Apply)</h3>
+        <img src="five9.png" style="width:300px;height:250px">
+        <h3>15. Write the algorithm for BFS. (Remember)</h3>
+        <ul>
+            <li>Select an unvisited node x, visit it, have it be the root in a BFS tree being formed. Its level is called the current level.
+            <li>From each node z in the current level, in the order in which the level nodes were visited, visit all the unvisited neighbors of z.
+            <Li>The newly visited nodes from this level form a new level that becomes the next current level.
+            <li>Repeat step 2 and 3 until no more nodes can be visited.
+            <li>If there are still unvisited nodes, repeat from Step 1.
+        </ul>
+        <h3>16.Write the BFS traversal for following graph. (To be done by students) (Apply)</h3>
+        <img src="five10.png" style="width:300px;height:250px">
+        <h3>17. Write about topological sorting in graphs. (Remember)</h3>
+        <ul>
+            <li>A topological sort is an ordering of vertices in a directed acyclic graph, such that if there is a path from vi to vj, then vjappears after vi in the ordering.
+            <li>A topological ordering is not possible if the graph has a cycle, since for two vertices v and w on the cycle, v precedes w and w precedes v.
+            <li>A simple algorithm to find a topological ordering is
+                <ul>
+                    <li>First find any vertex with no incoming edges.
+                    <li>Then print this vertex, and remove it, along with its edges, from the graph.
+                    <Li>Then apply this same strategy to the rest of the graph.
+                </ul>
+        </ul>
+        <h3>18. Perform topological sorting for following graphs. (To be done by students) (Apply)</h3>
+        <img src="five11.png" style="width:300px;height:250px">
+        <h3>19. Define minimum spanning tree (MST). (Remember)</h3>
+        <ul>
+            <li>A minimum spanning tree of an undirected graph G is a tree formed from graph edges that connects all the vertices of G at lowest total cost.
+            <li>A minimum spanning tree exists if and only if G is connected.
+            <li>Number of edges in the minimum spanning tree is |V| - 1.
+        </ul>
+        <h3>20. Write down the applications of minimum spanning tree. (Remember)</h3>
+        <ul>
+            <Li>Electric wiring a house with a minimum length cable,
+            <li>Cable TV connection with minimum cable
+            <li>Telephone Network Design
+            <li>Taxonomy
+            <li>Cluster Analysis
+        </ul>
+        <h3>21. Write the algorithms for finding MSTs. (Remember)</h3>
+        <ul>
+            <Li>Prim’s Algorithm
+            <li>Kruskal’s Algorithm
+        </ul>
+        <h3>22. What is meant by shortest path algorithms? (Remember)</h3>
+        <p>Given a connected weighted graph, G = (V, E), and two vertices u and v, finding a path of minimum total weight between u and v is called shortest path problem.</p>
+        <h3>23. State the types of shortest path algorithms. (Remember)</h3>
+        <ul>
+            <li>Single source shortest path problem
+            <li>All pair shortest path problem
+        </ul>
+        <h3>24. What is meant by single source shortest path problem? (Remember)</h3>
+        <p>Given as input a connected weighted graph, G = (V, E), and a distinguished vertex, s , finding the shortest weighted path from s to every other vertex in G is known as single source shortest path problem
+            Solution : Dijkstra Algorithm</p>
+        <h3>25. What is meant by all pair shortest path problem? (Remember)</h3>
+        <p>Given a connected weighted graph G(V,E), for each edge < u,v >(- E, a weight w(u,v) is associated with the edge. The all pairs of shortest paths problem (APSP) is to find a shortest path from u to v for every pair of vertices u and v in V.
+            Solution : Floyd – Warshall Algorithm</p>
+        <h3>26. Write down the applications of shortest path algorithms. (Remember)</h3>
+        <ul>
+            <li>Network Routing Protocols
+            <li>Google Maps
+            <li>Distances between the cities for the minimum route calculation for transportation (Traveling Salesman problem)
+            <li>Finding the minimum length cables required to cover the whole region
+        </ul>

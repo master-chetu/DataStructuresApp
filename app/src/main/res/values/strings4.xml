@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="one4">
+        <item>The complexity of linear search algorithm is</item>
+        <item>O(n)</item>
+        <item>O(log n)</item>
+        <item>O(n2)</item>
+        <item>O(n log n)</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="two4">
+        <item>The complexity of Bubble sort algorithm is</item>
+        <item>O(n)</item>
+        <item>O(log n)</item>
+        <item>O(n2)</item>
+        <item>O(n log n)</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="three4">
+        <item>The complexity of merge sort algorithm is</item>
+        <item>O(n)</item>
+        <item>O(log n)</item>
+        <item>O(n2)</item>
+        <item>O(n log n)</item>
+        <item>3</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="four4">
+        <item>Which of the following searching techniques do not require the data to be in sorted form</item>
+        <item>Binary Search</item>
+        <item>Interpolation Search</item>
+        <item>Linear Search</item>
+        <item>All of the above</item>
+        <item>2</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="five4">
+        <item>The number of comparisons done by sequential search is .......</item>
+        <item>(N/2)+1</item>
+        <item>(N+1)/2</item>
+        <item>(N-1)/2</item>
+        <item>(N-2)/2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="six4">
+        <item>The complexity of Binary search algorithm is</item>
+        <item>O(n)</item>
+        <item>O(log n)</item>
+        <item>O(n2)</item>
+        <item>O(n log n)</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
+</resources>

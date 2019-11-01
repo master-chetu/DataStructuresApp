@@ -1,0 +1,318 @@
+<body style="background-color:#303030;">
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+		color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+<h3>
+1. Define Tree.</h3>
+<ul>
+<li>A tree is a collection of nodesn nodes, one of which is the root, and n - 1 edges.
+<li>That is there are n - 1 edges which follows from the fact that each edge connects some node to its parent, and every node except the root has one parent
+<li>The collection can also be empty, which is sometimes denoted as A.
+<li>Otherwise, a tree consists of a distinguished node r, called the root, and zero or more (sub)trees T1 , T2 , . . . , Tk , each of whose roots are connected by a directed edge to r.
+<li>The root of each subtree is said to be a child of r, and r is the parent of each subtree root.
+<li>That is there are n - 1 edges which follows from the fact that each edge connects some node to its parent, and every node except the root has one parent
+</ul>
+<img src="three1.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+2.Define the following terms? (Give example for every definition in exams)
+</h3>
+<ul>
+<li>Leaf - Nodes with no children are known as leaves
+<li>Siblings - Nodes with the same parent are siblings
+<li>Path - A path from node n1 to nk is defined as a sequence of nodes n1 , n2, .. . , nk such that ni is the parent of ni+1 for 1<= i< k.
+<li>Length – length of a path is the number of edges on the path.
+<li>Depth - length of the unique path from the root to ni ; root is at depth 0.
+<li>Height – Height of a node ni is the longest path from ni to a leaf; So, all leaves are at height 0.
+<li>Degree –The number of children of a node
+<li>Ancestor and descendant - If there is a path from node n1 to n2, then n1 is the ancestor of n2 and n2 is the descendant of n1.
+</ul>
+<h3>
+3. Write down the applications of trees.
+</h3>
+<ul>
+<li>To implement the file system / directory structure in many common operating systems, including UNIX, VAX/VMS, and DOS.
+<li>To evaluate arithmetic expressions
+<li>To support searching operations in O(log n) average time
+</ul>
+<h3>
+4. What is meant by tree traversal? Write down its types?
+</h3>
+<ul>
+<li>Traversal refers to the process of visiting (checking and/or updating) each node in a tree data structure, exactly once.
+<li>Traversals are classified by the order in which the nodes are visited as follows.
+<ul>
+<li>Preorder Traversal
+<li>Postorder Traversal
+<li>There is no in order traversal for general trees
+</ul>
+</ul>
+<h3>
+5. Write the preorder traversal of general trees?
+</h3>
+<li>Display the data part of the root (or current node).
+<li>Traverse First subtree using Preorder traversal
+<li>Traverse the Second subtree using preorder traversal
+<li>Continue this till last subtree using preorder traversal
+</ul>
+<img src="two2.png" style="width:300px;height:250px;margin-left:20px">
+<p>Preorder : A B C D H E I J P Q F K L M G N
+
+<h3>
+6. Write the Postorder traversal of general trees?
+</h3>
+<ul>
+<li>Traverse First subtree using Postorder traversal
+<li>Traverse the Second subtree using postorder traversal
+<li>Continue this till last subtree using postorder traversal
+<li>Display the data part of the root (or current node).
+
+</ul>
+<img src="two2.png" style="width:300px;height:250px;margin-left:20px">
+<p>Postorder : B C H D I P Q J E K L M F N G A
+<h3>
+7. Define Binary Trees?
+</h3>
+<ul>
+<li>A binary tree is a tree in which no node can have more than two children.
+<li>A node can have both left and right child or left child only or right child only or no children
+<li>The tree made up of a left child (of a node x) and all its descendents is called the left subtree of x
+<li>Similar the tree made up of a right child (of a node x) and all its descendents is called the right subtree of x
+
+</ul>
+<img src="three2.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+8. What is meant by full binary tree? Give example?
+</h3>
+<ul>
+<li>A full binary tree (also called as proper or plane binary tree) is a tree in which every node in the tree has either 0 or 2 children.
+
+</ul>
+<img src="three4.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+9. What is meant by complete binary tree? Give example?
+</h3>
+<ul>
+<li>A complete binary tree is a tree that is completely filled, with the possible exception of the bottom level, which is filled from left to right.A complete binary tree of height h has between 2h and 2h+1 - 1 nodes.
+
+</ul>
+<img src="three5.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+10. Write down the binary tree traversal techniques?
+</h3>
+<ul>
+<li>Preorder Traversal
+<li>Inorder Traversal
+<li>Postorder Traversal
+</ul>
+<h3>
+11. Write the preorder traversal of binary trees?
+</h3>
+<p>In Preorder, the root is visited before (pre) the subtrees
+<ul>
+<li>1. Visit and display the content of root
+<li>
+2. Traverse left subtree in preorder
+<li>3. Traverse right subtree in preorder
+
+</ul>
+<img src="three6.png" style="width:300px;height:250px;margin-left:20px">
+<p>Preorder: a b c e k h j m d f i g
+<h3>
+12. Write the inorder traversal of binary trees?
+</h3>
+<p>In Inorder, the root is visited in-between left and right subtree traversal
+<ul>
+<li>1. Traverse left subtree using inorder traversal
+<li>2. Visit the root
+<li>3. Traverse right subtreeusing inorder traversal.
+</ul>
+<img src="three6.png" style="width:300px;height:250px;margin-left:20px">
+<p>Inorder : c b h k j e m a f d h i
+<h3>
+13. Write the postorder traversal of binary trees?
+</h3>
+<p>In Postorder, the root is visited after the subtrees traversals
+<ul>
+<li>1. Visit the root
+<li>2. Traverse left subtree in postorder
+
+<li>3. Traverse right subtree in postorder
+</ul>
+<img src="three6.png" style="width:300px;height:250px;margin-left:20px">
+<p>Postorder : c h j k m e b f g i d a
+
+<h3>
+14. Define Expression tree?
+</h3>
+<ul>
+<li>Expression tree is a binary tree in which leaves represents operands, such as variables and constant names and other node contains operators.
+<li>The inorder, postorder, preorder traversal of expression tree will produce infix, postfix and prefix notation for the expression under consideration.
+<li>Ex : Expression tree for (a + b * c) + ((d * e + f ) * g) is as follows
+
+</ul>
+<img src="three7.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+15. Define binary search tree?
+</h3>
+<ul>
+<li>A binary search tree is a special binary tree, which is either empty or it should satisfy the following characteristics:
+<li>Every node has a value and no two nodes should have the same value. It means the values in the binary search tree are distinct
+<li>The values in any left sub-tree is less than the value of its parent node
+<li>The values in any right sub-tree is greater than the value of its parent node
+<li>The left and right sub-trees of each node are again binary search trees
+
+</ul>
+<img src="3-3.png" style="width:300px;height:250px;margin-left:20px">
+<h3>
+16. Why it is said that searching a node in a binary search tree is efficient than in simple binary tree?
+</h3>
+<ul>
+<li>In binary search tree, the nodes are arranged in such a way that all nodes in left subtree have values less than root value and similarly all nodes in right subtree have values greater than root value.
+<li>While searching for any node value,it will be compared with the parent node and accordingly either left subbranch or right sub branch will be searched.
+<li>So, search is restricted to one of the subtree at every level and this makes search efficient compared to binary node in which all nodes should be compared since a match is found.
+</ul>
+<h3>
+17. There are 8, 15, 13, 14 nodes in 4 different trees. Which of them could form a full binary tree?
+</h3>
+<ul>
+<p>Ans: 15
+<li>Reason : In general, there are 2n-1 nodes in a full binary tree. By the method of elimination, fullbinary trees contain odd number of nodes. So there cannot be full binary trees with 8 or 14 nodes. With 13 nodes, one can form a complete binary tree but not a full binary tree. So the correct answer is 15.
+</ul>
+<h3>
+18. Create the binary search tree for the input : 8, 3, 6, 10, 14, 1, 4, 13, 7 
+</h3>
+
+<img src="three3.png" style="width:300px;height:250px;margin-left:20px">
+
+<h3>
+19. Write the C coding for find operation in a BST?
+</h3>
+<ul>
+<pre>
+struct treenode*
+find( int x, structtreenode* T )
+{
+if( T == NULL )
+return NULL;
+if( x < T->element )
+return( find( x, T->left ) );
+else if( x > T->element )
+return( find( x, T->right ) );
+else // element is found
+return T;
+}
+</pre>
+</ul>
+<h3>20. Write the C coding for finding minimum element in a BST?
+</h3>
+<ul>
+<li>To perform a find_min, start at the root and go left as long as there is a left child.
+<li>The stopping point is the smallest element.
+<pre>
+structtreenode*
+find_min( structtreenode* T )
+{
+if( T == NULL )
+return NULL;
+else if( T->left == NULL )
+return( T );
+else
+return(find_min ( T->left ) );
+}
+</pre>
+</ul>
+<h3>
+21. Write the C coding for finding maximum element in a BST?
+</h3>
+<ul>
+<li>To perform a find_max, start at the root and go right as long as there is a right child.
+<li>The stopping point is the largest element.
+<pre>
+structtreenode*
+find_max( structtreenode* T )
+{
+if( T == NULL )
+return NULL;
+else if( T->right == NULL )
+return( T );
+else
+return(find_max ( T->right ) );
+}
+</pre>
+</ul>
+<h3>
+22. Write down the applications of BST?
+</h3>
+<ul>
+<li>Implementation of dictionaries
+<li>Priority Queues
+<li>Searching Sorting
+<li>Map and set objects in many programming languages' libraries.
+</ul>
+<h3>
+23. Define AVL trees?
+</h3>
+<ul>
+<li>An AVL (Adelson-Velskii and Landis) tree is identical to a binary search tree, except that for every node in the tree, the height of the left and right subtree can differ by at most 1.
+<li>Here, height of an empty tree is defined to be -1 and height of a leaf node is 0.
+<li>If imbalance occurs at any node, rebalancing is done through rotations to restore balancing property
+</ul>
+<h3>
+24. Name the rotations in AVL tree?</h3>
+<ul>
+<li>Single Rotation
+<ul>
+<li>1. Right Rotation (Left subtree has more height)
+
+<li>2. Left Rotation (Right subtree has more height)
+</ul>
+<li>Double Rotation
+<ul>
+<li>1. Left-right rotation
+<li>2. Right-left rotation
+</ul>
+</ul>
+<h3>25. Write down the applications of AVL trees?</h3>
+<ul>
+<li>AVL trees are beneficial in database where insertions and deletionsare not that frequentbut look-up may be very frequent for the items. Ex - data mining and in data analytics.
+<li>Dictionaries
+</ul>
+<h3>26. What is a balance factor in binary tree?</h3>
+<ul>
+<li>The balance factor of a binary tree is the difference in heights of its left and right subtrees. The balancefactor (bf) of a height-balanced binary tree may take on one of the values -1, 0, +1.
+</ul>
+<h3>
+27. What is meant by B-tree of order m?</h3>
+<ul>
+<li>A B-tree of order m is an m-way tree (i.e., a tree where each node may have up to m children) in which:
+<ul>
+<li>1. Number of keys (max - m-1) in each non-leaf node is one less than the number of its children (max - m) and these keys partition the keys in the children in the fashion of a search tree
+<li>2. All leaves are on the same level
+<li>3. All non-leaf nodes except the root have at least
+<li>4. The root is either a leaf node, or it has from two to m children
+<li>5. A leaf node contains no more than m - 1 keys
+</ul>
+<li>The number m should is preferably to be odd
+</ul>
+<h3>28. State the applications of B-trees?</h3>
+<ul>
+<li>Modern filesystems use B-trees to allow quick random access to an arbitrary block in a particular file.
+<li>Used in core indexing data structure in many database management systems
+</ul>

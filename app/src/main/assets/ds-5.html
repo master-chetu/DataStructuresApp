@@ -1,0 +1,293 @@
+<body style="background-color:#303030;">
+<style>
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<pre> 
+#include < stdio.h >
+
+int MAXSIZE=10;   
+int CURRENTSIZE=0;
+int isEmpty()
+{
+    if(CURRENTSIZE==0)
+    {
+      return 1;       
+    }                 
+    else return 0;
+    
+}
+
+int isFull()
+{
+    if(CURRENTSIZE==MAXSIZE)
+    {
+      return 1;
+    }
+    else return 0;
+}
+
+void insertToEOL(int *Listptr)
+{
+     if(isFull())
+     {
+       printf("List is Full Can’t Insert\n");
+     }
+     else
+     {
+	 int element,index;
+	 printf("Enter the Element to Insert\n");
+	 scanf("%d",&element);
+	 index=CURRENTSIZE;
+	 Listptr[index]=element;
+	 CURRENTSIZE=CURRENTSIZE+1;
+     }
+    
+}
+
+void deleteFromEOL(int *List)
+{
+     if(isEmpty())
+     {
+       printf("List is Empty. We cant Delete\n"); 
+     }
+     else                                        
+     {
+         int element;
+         int index=CURRENTSIZE-1;
+	 element=List[index];
+         printf("Element %d deleted from postion %d\n",element,index+1);
+         CURRENTSIZE=CURRENTSIZE-1;
+     }
+   
+}
+
+void insertToFOL(int *List)
+{
+     
+     if(isFull())
+     {
+      printf("List is Full... cant insert\n");
+     }
+     else
+     {
+	 int index=0,element;
+	 printf("Enter the element to insert\n");
+	 scanf("%d",&element);
+
+	 for(index=CURRENTSIZE;index>0;index--)
+	 {
+	      List[index]=List[index-1];
+	 }
+	 List[0]=element;
+	 CURRENTSIZE=CURRENTSIZE+1;
+     }
+
+}
+
+void deleteFromFOL(int *List)
+{
+     if(isEmpty())
+     {
+	printf("List is Empty... cant delete\n");
+     }
+     else
+     {
+	  int index=0,element;
+	  element=List[0];
+	 for(index=0;index<CURRENTSIZE;index++)
+	 {
+	   List[index]=List[index+1];
+	 }
+	 CURRENTSIZE=CURRENTSIZE-1;
+	 printf("Element %d from Position 1\n",element);
+     }
+
+}
+
+void insertToNthPos(int *List)
+{
+     if(isFull())
+     {
+       printf("List is Full... Cant insert\n");
+     }
+     else
+     {
+	 int i,index=0,element,pos;
+	 printf("Available Postion in LIst\n");
+	 if(isEmpty())
+	 {
+	    printf("List is Empty... only Available Position is 1\n");
+	    printf("Enter the Element to insert\n");
+	    scanf("%d",&element);
+	    List[0]=element;
+	    CURRENTSIZE=CURRENTSIZE+1;
+	 }
+	 else
+	 {
+	   do
+	    {
+	     printf("Enter the Position(within %d from 1) in which you want to insert Element\n",CURRENTSIZE);
+	     scanf("%d",&pos);
+	    }while(pos>CURRENTSIZE || pos<0);
+	    printf("Enter the Element to insert\n");
+	    scanf("%d",&element);//Get the element
+	     for(index=CURRENTSIZE;index>pos-1;index--)
+	     {
+	      List[index]=List[index-1];
+	     }
+	  List[pos-1]=element;
+	  CURRENTSIZE=CURRENTSIZE+1;
+	 }
+
+
+
+     }
+
+}
+
+void deleteFromNthPos(int *List)
+{
+     int element,pos,index;
+      if(isEmpty())
+     {
+	printf("List is Empty... cant delete\n");
+     }
+     else
+     {
+	  do
+	    {
+	     printf("Enter the Position(within %d from 1) from which you want to Delete Element\n",CURRENTSIZE);
+	     scanf("%d",&pos);
+	    }while(pos>CURRENTSIZE || pos<0);
+	    element=List[pos-1];
+	  if(pos==CURRENTSIZE)
+	  { //Decrease the CURRENTSIZE by 1
+	   CURRENTSIZE=CURRENTSIZE-1;
+	  }
+	  else
+	  {
+	      for(index=pos-1;index<CURRENTSIZE;index++)
+	     {
+	      List[index]=List[index+1];
+	     }
+	     CURRENTSIZE=CURRENTSIZE-1;
+	  }
+	  printf("Element %d deleted from postion %d\n",element,pos);
+     }
+    printf("deleteFromNthPos\n");
+}
+
+void searchInList(int *List)
+{
+     int element,index,i,found=0;//Initially found=0
+     if(isEmpty())
+     {
+      printf("List is empty\n");
+     }
+     else
+     {
+     printf("Enter the Element to search\n");
+     scanf("%d",&element);//Get the element to search
+     for(i=0;i<CURRENTSIZE;i++)
+     {
+      if(List[i]==element)
+      {
+       found=1;
+       break;
+      }
+     }
+     if(found) printf("Element %d available in Position %d\n",element,i+1);
+     else printf("Element %d not available in List\n",element);
+     }
+
+}
+
+void printList(int List[])
+{
+     int i=0;
+     if(isEmpty())//If List is Empty return List is Empty
+     {
+	printf("List is Empty\n");
+     }
+     else  //If List is not empty
+     {
+	 printf("***Position--->Value***\n");
+	 for(i=0;i<CURRENTSIZE;i++)
+	 printf("   %d--------->%d\n",i+1,List[i]);
+     }
+     printf("***List Current Status***\n");
+     printf("MAXSIZE    =%d\n",MAXSIZE);
+     printf("CURRENTSIZE=%d\n",CURRENTSIZE);
+
+
+}
+void main()
+{
+    int List[10];
+    int iChoice=0,r=0;
+    do
+    {
+      printf("--------------Array Implementation Of List-----------\n");
+      printf("\t\t1. is Empty\n\t\t2. is Full\n\t\t3. Insert Element to End of LIST\n\t\t4. Delete Element from End of LIST\n\t\t5. Insert Element to Front of LIST\n\t\t6. Delete Element from Front of LIST\n\t\t7. Insert Element to nth Position of LIST\n\t\t8. Delete Element from Nth Postion of LIST\n\t\t9. Search Element in LIST\n\t\t10. print LIST\n\t\t11. Exit\n");
+      printf("------------------------------------------------------------\n");
+      printf("Please Enter Ur Choice\n");
+      scanf("%d",&iChoice);
+      switch(iChoice)
+      {
+       case 1:
+	     r=isEmpty();
+	     //printf("r=%d\n",r);
+	     r==0?printf("List is Not Empty\n"):printf("List is Empty\n");
+	      printf("------------------------------------------------------------\n");
+	     break;
+       case 2:
+	    r=isFull();
+	    r==0?printf("List is Not Full\n"):printf("List is Full\n");
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 3:
+	    insertToEOL(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 4:
+	    deleteFromEOL(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 5:
+	    insertToFOL(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 6:
+	    deleteFromFOL(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 7:
+	    insertToNthPos(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 8:
+	    deleteFromNthPos(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 9:
+	    searchInList(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 10:
+	    printList(List);
+	     printf("------------------------------------------------------------\n");
+	    break;
+       case 11:
+	    break;
+
+       default:
+	  printf("===============================================================\n");
+	  printf("\t\tHi Dude You are not entered the right choice\n");
+	  printf("===============================================================\n");
+	  }
+       }while(iChoice!=11);
+       system("PAUSE");
+    }

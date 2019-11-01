@@ -1,0 +1,143 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>2.3 Stack applications</h3>
+<h3>2.3.1 Balancing symbols</h3>
+<p>Compilers check our programs for syntax errors, but frequently a lack of one symbol (such as a missing brace or comment starter) will cause the compiler to spill out a hundred lines of diagnostics without identifying the real error.</p>	
+<p>A useful tool in this situation is a program that checks whether everything is balanced. Thus, every right brace, bracket, and parenthesis must correspond to their left counterparts. The sequence [()] is legal, but [(]) is wrong. For simplicity, we will just check for balancing of parentheses, brackets, and braces and ignore any other character that appears.</p>
+<p>Algorithm</p> 
+<ul>
+<li>Make an empty stack.</li> 
+<li>Read characters until end of file/string.</li>
+<li>If the character is an open brace like (, {, [, push it onto the stack. </li>
+<li>If it is a close brace like ). }, ], then if the stack is empty report an error. Otherwise, pop the stack. </li>
+<li>If the symbol popped is not the corresponding opening symbol, then report an error. </li>
+<li>At end of file, if the stack is not empty report an error.</li>
+</ul>
+
+<h3>2.3.2 Arithmetic Expression Formats</h3>
+<p>Infix Notation</p>
+<ul><li>The operators go in between the operands</li>
+<li>Ex: A+B,   C*D</li>
+<li>Requires Parentheses for expression evaluation</li></ul>
+<p>Postfix Notation</p>
+<ul><li>The operators go in between the operands</li>
+<li>Ex: AB+,   CD*</li></ul>
+<p>Prefix Notation<p>
+<ul><li>The operators go in between the operands</li>
+<li>Ex: +AB,   *CD</li></ul>
+
+
+<h3>2.3.3 Infix to postfix expression conversion</h3>
+<ol>
+<li>Start with empty stack and scan the given expression from left to right one by one.<li>
+<li>If you see an operand, print it.</li>
+<li>If you see '(', push it in stack.</li>
+<li>If you see ')', pop and print symbols until you pop a '(' from a stack.</li>
+<li>If you see a +, check the top of stack. If top of the stack is +, -, *, / (Equal or higher priority), pop and print symbols.  Then push '+'.</li>
+<li>Step 5 can be applied for '-' (minus) also.</li>
+<li>If You see '*', check top of stack for *, /. If so, pop and print symbols and then push '*'. Otherwise print '*'.</li>
+<li>Step 7 is applicable for '/' (division) also.</li>
+<li>Once you reach end of expression, pop the entire stack and print the symbols.</li>
+<li>Hence the idea is, whenever we see a symbol (operand), before pushing into stack, check the top of stack.</li>
+<ul>
+<li>If Stack Top contains any higher /equal operator precedence, pop the stack until you get an empty stack or lower precedence operator on top of stack. Then push the current symbol.</li>
+<li>If top of stack contains lower precedence operator, push the current operator. </li>
+</ul>
+</ol>
+
+<br>
+<img src="ip1.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip2.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip3.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip4.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip5.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip6.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip7.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip8.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip9.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip10.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip11.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip12.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip13.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip14.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip15.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip16.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+<br>
+<img src="ip17.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+
+<h3>2.3.4 Postfix Expression evaluation</h3>
+<ul>
+<li>Scan the Postfix string from left to right.</li>
+<li>Initialize an empty stack.</li>
+<li>If the scannned character is an operand, push it to the stack. </li>
+<li>Else If the scanned character is an operator(op), there will be at least two operands in the stack.</li>
+<ul>
+<li>Pop stack two times and store popped items in val2 and val1 respectively.</li>
+<li>Now evaluate the expression val1 op val2 and push the result into stack.</li>
+</ul>
+<li>Repeat this step till all the characters are scanned.</li>
+<li>After all characters are scanned, we will have only one element in the stack which is the result of evaluating the expression.</li>
+<li>So pop the stack ad print the final result.</li>
+</ul>
+
+<p>Postfix Notation</p>
+<ul><li>The operators go after the operands</li>
+<li>Parenthesis are not required for identifying operatory priority. </li>
+<li>Ex: AB+,   CD*</li></ul>
+<br>
+<img src="pf.png" style="width:300px;height:175px;margin-left:30px">
+<br>
+
+
+
+
+
+
+
+
+
+
+</body>

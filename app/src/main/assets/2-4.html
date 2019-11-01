@@ -1,0 +1,129 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+
+
+
+<h3>2.4 Queue</h3>
+
+
+<h3>Queue - Array version</h3>
+<p>A Queue is an ordered collection of items from which items may be deleted at one end  (called the front of the queue) and into which items may be inserted at the other end (the rear of  the queue). Queues remember things in first-in-first-out (FIFO) order. The basic operations in a  queue are i)Enqueue – Adding item to the end of queue, ii)Dequeue - Removing an item from the  front of the queue. In addition to this we can perform ViewFront, ViewQueue, checking isEmpty, IsFull as additional functions.</p>
+
+<h3>2.4.1 Array implementation of Queue ADT</h3>
+<p>A queue is implemented using a one dimensional array. Front is the array index of the first element of the queue. Rear is the array index of the last element which is recently inserted into the queue. </p>
+<p>In a normal Queue Data Structure, we can insert elements until queue becomes full. But once if queue becomes full, we cannot insert the next element until all the elements are deleted from the queue. For example consider the queue below...</p>
+
+<br>
+<img src="q1.png" style="width:300px;height:100px;margin-left:30px">
+<br>
+
+<p>Now consider the following situation after deleting three elements from the queue...</p>
+
+<br>
+<img src="q2.png" style="width:300px;height:100px;margin-left:30px">
+<br>
+ 
+
+<p>This situation also says that Queue is Full and we cannot insert the new element because, 'rear' is still at last position. In above situation, even though we have empty positions in the queue we cannot make use of them to insert new element. This is the major problem in normal queue data structure. To overcome this problem we use circular queue data structure.
+Circular Queue is a linear data structure in which the operations are performed based on FIFO (First In First Out) principle and the last position is connected back to the first position to make a circle.</p>
+<h3>Algorithm:</h3> 
+<ol>
+<li>Declare a structure called Queue that contains and Array, Capacity, QSize, Front and  Rear. Array can be either static dynamic as pointer to array. Capacity represents the maximum size of array and size represents the queue size.</li>
+<li>Initialize 	Capacity = MaxSize of Array, QSize=0, Front =0, Rear = -1.</li>
+<li>Enqueue : To insert an element into the queue:</li>
+	<ul>
+	<li>If Capacity = Qsize, queue is full and insertion is not possible.</li>
+	<li>Otherwise, increment Rear by 1 as follows</li>
+<pre>if (++Rear == Capacity)
+	Rear = 0;</pre>
+<p>	That is after incrementing, if Rear reaches capacity, wrap it to zero since 	here queue is implemented as circular queue.</p>
+    <li>Insert the element at rear position as follows.</li>
+		<pre>Array[Rear] = element</pre>
+	</ul>
+<li>Dequeue : To delete an element from the queue:</li>
+	<ul>
+	<li>If Qsize=0, queue is empty and deletion is not possible.</li>
+	<li>Otherwise, increment Front by 1 as follows.</li>
+	<pre>	if (++Front == Capacity)
+			Front = 0; </pre>
+	<p>That is after incrementing, if Front reaches capacity, wrap it to zero since 	here queue is implemented as circular queue.</p>
+	</ul>
+	<li>To view the content of queue, display array content front Front position to Rear position. When index is reaching end of array but rear is not reached means, index also should be wrapped to zero.</li>
+</ol>
+
+<h3>2.4.2 Queue- Linked List Version</h3>
+
+<p>	A Queue is an ordered collection of items from which items may be deleted at one end  (called the front of the queue) and into which items may be inserted at the other end (the rear of  the queue). Queues remember things in first-in-first-out (FIFO) order. The basic operations in a  queue are </p>
+<ol><li>Enqueue - Adding item to the end of queue. </li>
+<li>Dequeue - Removing an item from the  front of the queue. </li></ol>
+<p>In addition to this we can perform ViewFront, ViewQueue, checking isEmpty, IsFull as additional functions.</p>
+<p>We go for a linked list implementation of a queue rather than an array implementation because of the run time memory allocation feature of linked lists. There will be two pointers here. One is the Frontnode which acts as the header node and another is the Rear node which points to last node in list. To perform enqueue, a new node is created and attached with rear end. To perform dequeue, Frontnode is made to point to second node in list and first node is removed from memory.</p>
+
+<h3>Algorithm</h3>
+<ol>
+<li>Create a structure with a data filed and pointer field (Next) that points to the next node in the list.</li>
+<li>Create two nodes Front and Rear and make Front->Next = NULL indicating queue is empty.</li>
+<li>Enqueue: To insert an element in to queue</li>
+	<ul>
+	<li>Create a new node, TmpNode</li>
+	<li>If this is the first element to be inserted (Front->Next == NULL) then attach 	TmpNode as first node and make TmpNode as last node.</li>
+<pre>Front->Next=TmpNode;
+	Rear=Front->Next;</pre>
+	<li> Otherwise, attach TmpNode after current Rear node and make TmpNode is 	Rear node</li>
+<pre>Rear->Next=TmpNode;
+	Rear=Rear->Next;</pre>
+	</ul>
+<li>Dequeue: To delete an element from queue</li>
+	<ul>
+	<li>If Front->Next = NULL, display queue as empty.
+	<li>Otherwise, </li>
+	<ul>
+		<li>Connect Front node with second node</li>
+		<li>Free the first node</li>
+		<li>If queue becomes empty make Rear node to be Front Node</li>
+<pre>FirstNode = Front->Next;
+Front->Next = FirstNode->Next;
+free(FirstNode);
+if(Front->Next==NULL)
+	=Front;</pre>
+	</ul>
+	</ul>
+<li>To display the content of queue</li>
+<ul>
+<li>If Front->Next == NULL, display queue is empty.</li>
+<li>Otherwise, let Temp=Front->Next, first node in queue.</li>
+<li>Print Temp->data</li>
+<li>Move to next node as Temp=Temp->Next.</li>
+<li>Repeat from step iii) until Temp becomes NULL.</li>
+</ul>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>

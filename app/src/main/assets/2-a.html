@@ -1,0 +1,329 @@
+<body style="background-color:#303030;">
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+		color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>1. What is meant by ADT? Give examples. (Remember)</h3>
+<ul>
+<li>An abstract data type is defined as a mathematical model of the data objects that make up a data type as well as the functions that operate on these objects. There are no standard conventions for defining them.
+<li>Objects such as lists, sets, and graphs, along with their operations, can be viewed as abstract data types.
+</ul>
+
+<h3>2. Write about List ADT. (Remember)</h3>
+<ul>
+<li>A list is an abstract data type that represents an ordered sequence of values, where the same value may occur more than once.
+<ul>
+<p>set of operations on the list ADT
+<li>PrintList-Displays the content of the list
+<li>MakeEmpty-Clears the content of the list
+<li>Find:return the position of the first occurrence of a key
+<li>Insert and Delete:insert and delete some key from some position in the list
+<li>FindKth:return the element in some position
+<li>FindNext and FindPrevious:take a position as argument and return the position of the successor and predecessor
+</ul>
+</ul>
+
+<h3>3. State the limitations of arrays. (Understand)</h3>
+<ul>
+<li>Number of elements to be stored in an array should be known in advance
+<li>Chances of memory wastage or shortage
+<li>The elements of array are stored in consecutive memory locations. So insertions and deletions are very difficult and time consuming.
+</ul>
+
+<h3>15. Compare linked list and arrays. (Analyse)</h3>
+<img src="two4a.png" style="width:300px;height:250px;margin-left:20px">
+<img src="two4b.png" style="width:300px;height:250px;margin-left:20px">
+
+<h3>4. What is meant by stack? Give examples. (Remember)</h3>
+<ul>
+
+<p>Stack is an ordered group of homogeneous items of elements. Elements are added to and removed from one end called the top of the stack. Most recently added item will be at the top of the stack and hence it will be removed first. So stack is said to follow the queue discipline LIFO: Last In, First Out. The well known operations in a stack are PUSH and POP.
+</p>
+<li>Ex : A stack of cafeteria trays, Stack of neatly folded shirts, stack of pennies
+</ul>
+
+<h3>5. List down the applications of stack. (Remember)</h3>
+<ul>
+<li>Postfix Expression Evaluation
+<li>Expression Conversion
+<ul>
+<li>Infix to Postfix
+<li>Infix to Prefix
+<li>Postfix to Infix
+<li>Prefix to Infix
+</ul>
+<li>Balanced Parenthesis Checking in expressions
+<li>Parsing
+<li>Recursive Function Calling
+<li>Function Calling
+</ul>
+
+<h3>6. What is meant by queue? Give examples. (Remember)</h3>
+<ul>
+<p>
+A queue is an ordered set of homogeneous elements in which the elements are added at one end called the rear end and removed from another end called front end. So a queue is said to follow the discipline FIFI (First In, First Out). The common operations in a queue include enqueue and dequeue.
+</p>
+
+<li>Examples: people waiting in reservation counters.
+</ul>
+
+<h3>7. List down the applications of queue. (Remember)</h3>
+<ul>
+<li>Jobs waiting in a printer,
+<li>Processes waiting in a CPU
+<li>Messages waiting in a communication channel
+</ul>
+
+<h3>8. Compare stack data structure with queue data structure. (Analyse)</h3>
+<img src="two5.png" style="width:300px;height:250px;margin-left:20px">
+
+<h3>9. State the advantages of using circular array for queue implementation. (Understand)</h3>
+<ul>
+<p>
+In linear array, once rear reaches end of array, no more elements can be added to array though some space exists in the front of array due to removal of some elements from front of array. In case of circular queue, once rear reaches end of array, it is rotated back to the beginning of array, so that empty spaces can be utilized effectively.
+</p>
+</ul>
+
+<h3>10. State the different ways that a stack/queue/list can be implemented.(Remember)</h3>
+<ul>
+<li>Using arrays
+<li>Using cursors
+<li>Using Linked Lists
+</ul>
+
+<h3>11. What is meant by node in linked list? (Remember)</h3>
+<ul>
+<pre>
+struct node {
+int data;
+struct node *next;
+};
+</pre>
+<li>In the above node structure, we have defined two fields in structure –Field Significance
+
+<li>data It is Intege Part for Storing data inside Linked List Node
+<li>next It is a pointer field which stores the address of another node
+</ul>
+
+<h3>12.What is meant by deque? List down its operations? (Remember)</h3>
+<ul>
+<p>A double-ended queue (deque, pronounced as deck) is an abstract data type that generalizes a queue, for which elements can be added to or removed from either the front or rear ends.</p>
+<li>Operations :
+<ul>
+<li>Push(X,D)-Insert item X on the front of the deque D
+<Li>Pop (D)-Remove the front item from deque D
+<li>Inject(X,D)-Insert item X on the rear end of the deque D
+<li>Eject(D)-Remove the rear item from the deque D
+</ul>
+</ul>
+<h3>13. Write the advantage of array implementation of list. (Understand)</h3>
+<ul>
+<li>Easy to implement
+<li>Random access is easier
+<li>Suitable when the numbers of elements are predefined or already known.
+</ul>
+<h3>14. Write the need for header/Sentinel node in a linked list. (Understand)</h3>
+<ul>
+<li>A header node is a special node in a linked list which always points to the first node in the list.
+<li>When the first node in list has to be deleted, it can be easily done by making the header node to point to the second node.
+<Li>Since data portion of header is unused, it can be used for keeping number of elements in the list, maximum / minimum value in list or any other value relevant to the application.
+</ul>
+<h3>15. Write the advantages of circular linked list compared to linear linked list. (Understand)</h3>
+<ul>
+<li>No longer need to have both a head and tail nodes to keep track of the list.
+<li>Even if only a single variable is used, both the first and the last list elements canbe found in constant time.
+<li>Also, for implementing queues using circular linked list, we will only need one pointer namely tail, to locate both head and tail.
+</ul>
+<h3>16. Write down the applications of Circular Linked List. (Remember)</h3>
+<ul>
+<li>To keep track of which player’s turn it is in a multi-player board game
+<li>It is the basic idea of round robin scheduling algorithm.
+<li>Used for time sharing in operating system and resource sharing in CPU scheduling.
+</ul>
+<h3>17. Write down the applications of Doubly Linked List. (Remember)</h3>
+<ul>
+<li>A great way to represent a deck of cards in a game.
+<li>browser cache which allows you to hit the BACK button (a linked list of URLs)
+<li>Applications that have a Most Recently Used (MRU) list (Ex ; a list of file names)
+<li>stack, hash table, and binary tree can be implemented using a doubly linked list.
+<li>Undo functionality in Photoshop or Word (a linked list of state)
+</ul>
+<h3>18.What is meant by Hashing? (Remember)</h3>
+<ul>
+<li>Hashing is the transformation of string of characters into a usually shorter fixed length value or key that represents the original string.
+<li>It is used to index and retrieve items in a database because it is faster to find the item using the short hashed key than to find it using the original value.
+</ul>
+<h3>19. What is meant by hash table? (Remember)</h3>
+<ul>
+<li>The hash table data structure is merely an array of some fixed size, containing the keys. A key is astring with an associated value.
+<li>Each key is mapped into some number in the range 0 to tablesize-1and placed in the appropriate cell.
+<li>Hash tables, are used to implement associative arrays and dynamic sets.
+</ul>
+<h3>20. What is meant by hash function? (Remember)</h3>
+<ul>
+<li>A hash function is a key to address transformation which acts upon a given key to compute the relative position of the key in an array.
+<li>The choice of hash function should be simple and it must distribute thedata evenly.
+<li>A simple hash function is hash_key=key mod tablesize.
+</ul>
+<h3>21. State the importance of hashing. (Remember)</h3>
+<ul>
+<li>Hashing maps key with the corresponding value using hash function.
+<li>Hash tables support the efficient addition of new entries.
+<li>Time spent on searching for the required data is independent of the number of items stored in hash tables.
+</ul>
+<h3>22. What is meant by collision in hashing? (Remember)</h3>
+<ul>
+<li>Two or more keys hashing to the same slot in hash table is called collision.
+<li>That is when an element is inserted, if its hash value matches a location in hash table where an element is already present, it is said to be collision.
+</ul>
+<h3>23. Write the collision resolution methods? (Remember)</h3>
+<ul>
+<li>Separate chaining or External(Open) hashing
+<li>Open addressing or Closed hashing
+<li>Linear probing
+<li>Quadratic probing
+<li>Double hashing
+</ul>
+<h3>24. What is meant by separate chaining? (Remember)</h3>
+<ul>
+<li>Separate chaining is a collision resolution technique to keep the list of all elements that hash to thesame value.
+<li>This is called separate chaining because each hash table element is a separate chain(linked list).
+<li>Each linked list contains set of elements whose keys hash to the same index.
+<li>Following is the sample hash table with separate chains for the hash function hash(x) = x mod 10.
+</ul>
+<img src="two6.png" style="width:300px;height:250px;margin-left:20px">
+
+<h3>25.Write the advantage and disadvantages of separate chaining. (Understand)</h3>
+<ul>
+<li>Advantages</p>
+<ul>
+<li>Every element will get space.
+</ul>
+<li>Disadvantages
+<ul>
+<li>Need two data structures for implementation-table for index/key values and list for actual values
+<li>More memory is consumed by pointers
+<Li>Search / find takes more time since entire list matching with search key should be traversed
+<li>As chains get longer, search time increases to O(n) in the worst case.
+<Li>Parts of the array might never be used.
+</ul>
+</ul>
+<h3>26. What is meant by open addressing? (Remember)</h3>
+<ul>
+<p>
+Open addressing is a collision resolving strategy in which, if collision occurs alternative cells are trieduntil an empty cell is found. The cells h0(x), h1(x), h2(x),... are tried in succession, wherehi(x)=(Hash(x)+F(i))mod Tablesize. Here, F is the collision resolution function.
+</p>
+</ul>
+<h3>27. What do you mean by Probing? (Remember)</h3>
+<ul>
+<p>Whenever collision occurs in hashing, the process of getting next available hash table array cell to insert the new value is called as probing.
+</p>
+</ul>
+
+<h3>28. What is meant by linear probing?(Remember)</h3>
+<ul>
+<li>Linear probing is an open addressing collision resolution strategy in which whenever collision occurs, the array (hast table) is scanned down one cell at a time looking for an empty cell with the hash function hi(X) = (Hash(X) + i) mod TableSize (i = 0, 1, 2,...).
+<li>If the table is big enough, a freecell can always be found, but the time to do so can get quite large.
+</ul>
+<h3>29. Write about primary clustering?(Remember)</h3>
+<ul>
+<p>
+In linear probing collision resolution strategy, even if the table is relatively empty, blocks of occupiedcells start forming groups. This effect is known as primary clustering means that any key hashes into thecluster will require several attempts to resolve the collision and then it will add at the end of the same cluster.
+</p>
+</ul>
+<h3>30. What do you mean by quadratic probing? (Remember)</h3>
+<ul>
+<li>Quadratic probing is an open addressing collision resolution strategy in which hi(X) = (Hash(X) + F(i)) where F(i)=i2.
+<li>But here also, there is noguarantee of finding an empty cell once the table gets half full.This problem can be overcome by fixing tablesize as a prime.
+</ul>
+<h3>31. What do you mean by double hashing?(Remember)</h3>
+<ul>
+<li>Double hashing is an open addressing collision resolution strategy in which the search is spread out for an empty slot by using a second hash function.
+<li>hi(X) = (Hash1(X) + Hash2(X)) mod TableSize for i = 0, 1, 2,...
+<li>Thisformula says that we apply a second hash function to X and probe at a distance Hash2(X).
+<li>Good choice of Hash2(X) can guarantee "does not get stuck".
+<li>For Integer keys:Hash2(X) = R-(X mod R) is preferred where R is a prime smaller than TableSize
+</ul>
+<h3>32. State advantages and disadvantages of linear probing. (understand)</h3>
+<ul>
+<li>Advantages:
+<ul>
+<li>Insertion never fails if the table has at least one free field.
+</ul>
+<li>Disadvantages
+<ul>
+<li>Compared to quadratic probing and double hashing, access becomes inefficient at a lower load factor. The reason for this is that resolution sequences for different table fields merge if they have a field in common.
+</ul>
+</ul>
+<h3>33. State advantages and disadvantages of quadratic probing. (understand)</h3>
+<ul>
+<Li>Advantages:
+<ul>
+<li>Compared to linear probing access becomes inefficient at a higher
+load factor.
+</ul>
+<li>Disadvantages
+<ul>
+<li>Insertion sometimes fails although the table still has free fields.
+</ul>
+</ul>
+<h3>34. State advantages and disadvantages of double hashing. (understand)</h3>
+<ul>
+<li>Advantages :
+<ul>
+<li>Compared to linear probing access becomes efficient at a higher load factor.
+<li>Resolution sequences for different elements are different even if the first hash function hashes the elements to the same field.
+<li>If the hash functions are chosen appropriately, insertion never fails if the table has at least one free field.
+</ul>
+<li>Disadvantages
+<ul>
+<li>May not work well when table size is small.
+</ul>
+</ul>
+<h3>35. State advantages and disadvantages of open hashing. (understand)</h3>
+<ul>
+<li>Advantages :
+<ul>
+<li>Real deletion possible.
+<li>Insertion never fails.
+<li>Access operations are quite efficient even if the table has a high load factor (possibly greater than 1). As a consequence the table size for an open hash table can be chosen smaller than the table size for a closed hash table.
+</ul>
+<li>Disadvantages
+<ul>
+<li>Memory allocation causes time overhead in the insertion operation.
+<li>Extra space required to store "Next"-pointers.
+</ul>
+</ul>
+<h3>36. State advantages and disadvantages of closed hashing. (understand)</h3>
+<ul>
+<li>Advantages :
+<ul>
+<li>No time overhead caused by dynamic memory allocation.
+<li>No extra space required to store "Next"-pointers.
+</ul>
+<li>Disadvantages
+<ul>
+<li>Real deletion not possible.
+<li>The number of table elements is bounded by the table size.
+<li>Access operations are inefficient if the table has a high load factor.
+<li>The table size has to be chosen greater than the expected number of
+<li>elements to make access efficient.
+</ul>
+</ul>

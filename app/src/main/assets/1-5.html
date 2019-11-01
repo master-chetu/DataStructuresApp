@@ -1,0 +1,55 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+<h3>1.5 Recursive definition and processes</h3>
+<p>
+In general, Recursion is a method of defining a function in terms of its own definition. In programming, recursion is a call to the same method from a method.
+<br>
+<h3>1.5 Definition:</h3>
+<p>
+A recursive function is defined as a function that calls itself to solve a smaller version of its task until a final call is made which does not require a call to itself.  Every recursive function has two major cases, they are,
+<li>Base Case: The problem is simple and can be solved directly without making further calls to same function.</li>
+<li>Recursive Case :<br>
+	 i) Given problem is divided in to simpler sub parts<br> 
+	ii) Function calls itself with subparts of the problem obtained in first step.<br> 
+	iii)  Result is obtained by combining solutions of simpler subparts.</li>
+<p>
+Base case acts as the terminating condition. If it is not defined, then recursive function will generate infinite sequence of calls and will lead to error conditions. 
+<br>
+Example: Factorial of a given number is defined as follows.
+	<br>
+	For any integer n, 	n! = n * (n-1)!    (Recursive case) and also <br>
+				 1! = 1  (Base Case)<br>
+Therefore 5! = 5 *4!; <br>	4! = 4*3!; <br> 3! = 3 * 2!; <br> 2! = 2 * 1!; <br> 1! = 1 <br>
+</p>
+
+<h3>Advantages</h3>
+<ul>
+<li>Recursive solution is shorter and simpler than non-recursive ones.</li>
+<li>It is a method to  solve problems by solving easier instance of the same problem</li>
+<li>Code is clearer and easier to use.</li>
+<li>It follows divide and conquer strategy to solve problems.</li>
+</ul>
+<h3>Disadvantages</h3>
+<ul>
+<li>Sometimes, recursive solutions takes more memory and time to execute</li>
+<li>Difficult to find bugs if global variables are used in recursive functions</li>
+</ul>
+
+
+
+</body>

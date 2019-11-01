@@ -1,0 +1,101 @@
+<body style="background-color:#303030;">  
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+
+<h3>3.5 AVL Trees</h3>
+<li>An AVL (Adelson-Velskii and Landis) tree is identical to a binary search tree, except that for every node in the tree, the height of the left and right subtrees can differ by at most 1. (The height of an empty tree is defined to be -1 & height of a leaf node is 0.)</li>
+<li>This balance condition ensures that the depth of the tree is O(log n).</li>
+<li>In following trees, identify which is AVL tree?
+<img src="avl1.png" style="width:300px;height:100px;margin-left:30px">
+
+<h3>Smallest AVL tree of height 9</h3>
+<li>All the AVL tree operations can be performed in O(log n) time except insertion.</li>
+<li>Because during an insertion, we need to update all the balancing information for the nodes on the path back to the root.</li>
+<li>This can always be done with a simple modification to the tree, known as a single rotation and double rotation.</li>
+<img src="avl2.png" style="width:300px;height:150px;margin-left:30px">
+
+<h3>3.5.1 AVL Trees - Single Rotation</h3>
+<ul>
+<li>Start at the node inserted and travel up the tree.</li>
+<li>Update the balance information at every node on the path. </li>
+<li>If we get to the root without having found any badly balanced nodes, no need for any rotation.</li>
+<li>Otherwise, a rotation at the first bad node found is required to adjust its balance. We can stop here and need not to continue going to the root.</li>
+</ul>
+<img src="avl3.png" style="width:300px;height:150px;margin-left:30px">
+
+<h3>Type 1 : Right Rotation (Left subtree has more height)</h3>
+<ul>
+<li>When new value is inserted in the subtree A,</li>
+<li>The AVL-property is violated at x  since height of left(x) is h+2 but  height of right(x) is h.</li>
+<li>So rotate with left child y. Make y as a parent, x as its right child and    y's right child as left child of x.</li>
+</ul>
+<img src="avl4.png" style="width:300px;height:150px;margin-left:30px">
+
+<h3>Type 2 : Left Rotation(Right subtree has more height)</h3>
+<ul>
+<li>When new value is inserted in the subtree A,</li>
+<li>The AVL-property is violated at x  since height of right(x) is h+2 but  height of left(x) is h.</li>
+<li>So rotate with right child y. Make y as a parent, x as its left child and    y's left child as right child of x.</li>
+</ul>
+<img src="avl5.png" style="width:300px;height:150px;margin-left:30px">
+
+<li>A rotation involves only a few pointer changes and alters the structure of the tree while preserving the search tree property. </li>
+<img src="avl6.png" style="width:300px;height:200px;margin-left:30px">
+
+<p>Insert elements 1 to 7 in a BST and maintain AVL tree properties</p>
+<img src="avl7.png" style="width:300px;height:200px;margin-left:30px">
+<img src="avl8.png" style="width:300px;height:200px;margin-left:30px">
+
+<li>In some cases single rotation may not balance the height properly.</li>
+<li>inserting 14 causes a height imbalance at node 7 and so a rotate with right  child is done.</li>
+<li>This is caused mainly because of the middle element 14.</li>
+<li>So double rotation is required.</li>
+<img src="avl9.png" style="width:300px;height:150px;margin-left:30px">
+
+<h3>3.5.2 AVL Trees - Double Rotation</h3>
+<p>Double rotation involves 4 subtrees</p>
+<img src="avl10.png" style="width:300px;height:240px;margin-left:30px">
+</br></br>
+<li>Insert 15, 14 in previous tree ( 1 to 7)</li>
+<li>Here the double rotation is a right-left double rotation involving 7, 15, 14.</li>
+<li>k1 is 15, k2 is 14 and k3 is 7. </li>
+<li>Make k2 as parent node and k3 as left child and k1 as its right child.</li>
+<img src="avl11.png" style="width:300px;height:150px;margin-left:30px">
+</br></br>
+<li>Insert 13.</li>
+<li>Imbalance occurs at 6 involving a right-left.</li>
+<li>So k1 is 14, k2 is 7 and k3 is 6.</li>
+<li>Take k2(7) as parent and make k3 (6) as left child and k1(14) as right child.</li>
+<li>Now k2's(7) right  goes to k1's(14) left </li>
+<img src="avl12.png" style="width:300px;height:160px;margin-left:30px">
+</br></br>
+<li>Insert 12</li>
+<li>Imbalance occurs at 4 with right-right. So single left rotation is enough.</li>
+<img src="avl13.png" style="width:300px;height:160px;margin-left:30px">
+</br></br>
+<li>Insert 11</li>
+<li>Imbalance occrist at 13 with left-left. So, single right rotation is enough.</li>
+<img src="avl14.png" style="width:300px;height:160px;margin-left:30px">
+</br></br>
+<li>Final diagram after inserting 9, 8.</li>
+<li>Draw intermediate diagrams.</li>
+<li>Not try to insert 8.5</li>
+<img src="avl14.png" style="width:300px;height:160px;margin-left:30px">
+
+
+
+
+</body>

@@ -1,0 +1,140 @@
+<body style="background-color:#303030;">  
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>3.6 B-Trees</h3>
+<h3>3.6.1 Definition of a B-tree</h3>
+<li>A B-tree of order m is an m-way tree (i.e., a tree where each node may have up to m children) in which:</li>
+<ol>
+<li>the number of keys in each non-leaf node is one less than the number of its children and these keys partition the keys in the children in the fashion of a search tree</li>
+<li>all leaves are on the same level</li>
+<li>all non-leaf nodes except the root have at least [m / 2] children</li>
+<li>the root is either a leaf node, or it has from two to m children</li>
+<li>a leaf node contains no more than m – 1 keys</li>
+</ol>
+<li>The number m is preferably to be odd</li>
+
+<h3>3.6.2 B-Tree Example</h3>
+<img src="b1.png" style="width:300px;height:180px;margin-left:30px">
+
+<h3>3.6.3 Inserting into a B-Tree</h3>
+<li>Attempt to insert the new key into a leaf</li>
+<li>If this would result in that leaf becoming too big, split the leaf into two, promoting the middle key to the leaf's parent</li>
+<li>If this would result in the parent becoming too big, split the parent into two, promoting the middle key</li>
+<li>This strategy might have to be repeated all the way to the top</li>
+<li>If necessary, the root is split in two and the middle key is promoted to a new root, making the tree one level higher</li>
+
+<h3>3.6.4 Constructing a B-tree</h3>
+<li>Suppose we start with an empty B-tree and keys arrive in the following order:1  12  8  2  25  5  14  28  17  7  52  16  48  68  3  26  29  53  55  45</li>
+<li>We want to construct a B-tree of order 5</li>
+<li>The first four items go into the root:</li>
+<img src="b2.png" style="width:200px;height:50px;margin-left:30px">
+</br></br>
+<li>To put the fifth item in the root would violate condition 5</li>
+<li>Therefore, when 25 arrives, pick the middle key to make a new root</li>
+
+
+<img src="b17.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+<li>6, 14, 28 get added to the leaf nodes:</li>
+<img src="b16.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+<li>Adding 17 to the right leaf node would over-fill it, so we take the middle key, promote it (to the root) and split the leaf</li>
+<img src="b18.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+<li>7, 52, 16, 48 get added to the leaf nodes</li>
+<img src="b4.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+<li>Adding 68 causes us to split the right most leaf, promoting 48 to the root, and adding 3 causes us to split the left most leaf, promoting 3 to the root; 26, 29, 53, 55 then go into the leaves</li>
+<img src="b6.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+<li>Adding 45 causes a split of</li>
+<img src="b5.png" style="width:200px;height:50px;margin-left:30px">
+<p>and promoting 28 to the root then causes the root to split</p>
+</br>
+<h3>Final B-Tree</h3>
+<img src="b6.png" style="width:300px;height:120px;margin-left:30px">
+
+<h3>3.6.5 Removal from a B-tree</h3>
+<p>During insertion, the key always goes into a leaf.  For deletion we wish to remove from a leaf.  There are three possible ways we can do this:</p>
+<ol>
+<li>If the key is already in a leaf node, and removing it doesn't cause that leaf node to have too few keys, then simply remove the key to be deleted.</li>
+<li>If the key is not in a leaf then it is guaranteed (by the nature of a B-tree) that its predecessor or successor will be in a leaf -- in this case we can delete the key and promote the predecessor or successor key to the non-leaf deleted key’s position.</li>
+
+<p>If (1) or (2) lead to a leaf node containing less than the minimum number of keys then we have to look at the siblings immediately adjacent to the leaf in question:  </p>
+
+<li>If one of them has more than the min. number of keys then we can promote one of its keys to the parent and take the parent key into our lacking leaf </li>
+<li>If neither of them has more than the min. number of keys than the lacking leaf and one of its neighbours can be combined with their shared parent (the opposite of promoting a key) and the new leaf will have the correct number of keys; if this step leave the parent with too few keys then we repeat the process up to the root itself, if required </li>
+</ol>
+
+<h3>Type #1: Simple leaf deletion</h3>
+<img src="b7.png" style="width:300px;height:130px;margin-left:30px">
+</br></br>
+<h3>Type #2: Simple non-leaf deletion</h3>
+<img src="b8.png" style="width:300px;height:130px;margin-left:30px">
+
+<h3>Type #3: Enough siblings</h3>
+<img src="b11.png" style="width:300px;height:130px;margin-left:30px">
+</br></br>
+<img src="b12.png" style="width:300px;height:130px;margin-left:30px">
+
+<h3>Type #4: Too few keys in node and its siblings</h3>
+<img src="b9.png" style="width:300px;height:130px;margin-left:30px">
+</br></br>
+<img src="b10.png" style="width:300px;height:130px;margin-left:30px">
+
+<h3>3.6.6 Analysis of B-Trees</h3>
+<li>The maximum number of items in a B-tree of order m and height h:</li>
+<pre>root		m - 1
+level 1	m(m - 1)
+level 2	m2(m - 1)
+. . . 	
+level h	mh(m - 1)
+</pre>
+<li>So, the total number of items is	</li>
+<pre>
+(1 + m + m2 + m3 + .. + mh)(m - 1) =		
+[(mh+1 - 1)/ (m - 1)] (m - 1) = m<sup>h+1</sup> - 1
+</pre>
+<li>When m = 5 and h = 2 this gives 5<sup>3</sup>-1 = 124</li>
+
+<h3>3.6.7 Reasons for using B-Trees</h3>
+<li>When searching tables held on disc, the cost of each disc transfer is high but doesn't depend much on the amount of data transferred, especially if consecutive items are transferred</li>
+<ul>
+<li>If we use a B-tree of order 101, say, we can transfer each node in one disc read operation</li>
+<li>A B-tree of order 101 and height 3 can hold 1014 - 1 items (approximately 100 million) and any item can be accessed with 3 disc reads (assuming we hold the root in memory)</li>
+</ul>
+<li>If we take m = 3, we get a 2-3 tree, in which non-leaf nodes have two or three children (i.e., one or two keys)</li>
+<ul><li>B-Trees are always balanced (since the leaves are all at the same level), so 2-3 trees make a good type of balanced tree</li></ul>
+
+<h3>3.6.8 Comparing Trees</h3>
+<li>Binary trees
+<ul>
+<li>Can become unbalanced and lose their good time complexity (big O)</li>
+<li>AVL trees are strict binary trees that overcome the balance problem</li>
+<li>Heaps remain balanced but only prioritise (not order) the keys</li>
+</ul>
+<li>Multi-way trees</li>
+<ul>
+<li>B-Trees can be m-way, they can have any (odd) number of children</li>
+<li>One B-Tree, the 2-3 (or 3-way) B-Tree, approximates a permanently balanced binary tree, exchanging the AVL tree's balancing operations for insertion and (more complex) deletion operations</li>
+</ul>
+
+
+
+
+
+
+</body>

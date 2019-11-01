@@ -1,0 +1,166 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>5.2 Minimum Spanning Tree</h3>
+<ul>
+<li>A minimum spanning tree of an undirected graph G is a tree formed from graph edges that connects all the vertices of G at lowest total cost. </li>
+<li>A minimum spanning tree exists if and only if G is connected.</li>
+<li>Number of edges in the minimum spanning tree is |V| - 1. </li>
+<li>Minimum spanning tree is a tree because it is acyclic.</li>
+<li>It is spanning because it covers every edge, and it is minimum for the obvious reason. </li>
+<li>Application : wiring a house with a minimum of cable, cable TC connection with minimum cable.</li>
+</ul>
+
+<img src="g31.png" style="width:300px;height:150px;margin-left:30px">
+</br></br>
+<img src="g30.png" style="width:300px;height:150px;margin-left:30px">
+
+<h3>MST - Algorithms</h3>
+
+<p>Problem Statement :</p>
+<ul>
+<li>Let G=(V,E) be  a connected, undirected graph. </li>
+<li>For each edge (u, v) in E, we have a weight C<sub>u,v</sub> specifying the cost (length of edge) to connect u and v.</li>
+<li>We wish to find an acyclic subset T of  E that connects all of the vertices in V and whose total weight is minimized.</li>
+<li>Two Algorithms for construction of MST</li>
+<ul>
+<li>Prim's Algorithm</li>
+<li>Kruskals's Algorithm</li>
+</ul>
+</ul>
+
+<h3>5.2.1 Prim's Algorithm</h3>
+<ul>
+<li>Initially discovered in 1930 by Vojtěch Jarník, then rediscovered in 1957 by Robert C. Prim</li>
+<li>Steps</li>
+<ol>
+<li>Start by picking any node within the graph and include it in the tree.</li>
+<li>At each stage, a new vertex v is to be added to the tree by choosing the edge (u, v) such that the cost of (u, v) is the smallest among all edges. Here u is in the tree and v is not.</li>
+<li>If the tree does not contain all vertices in the graph, repeat step 2.</li>
+</ol>
+</ul>
+
+<h3>Prim's Algorithm - Detailed Steps</h3>
+<ol>
+<li>Pick any vertex  r to be a root and let it be current vertex.</li>
+<li>Set dr = 0, pr = null , known = True  </li>
+<p>	//  d - shortest distance  from so far constructed tree, </p>
+<p>	//p - previous node </p>
+<p>	//known indicates that the node is added to MST</p>
+<li>For all other vertices v &straightepsilon; V, v &ne;r, set dv = &infin; , pv = null, known = False</li>
+</br>
+<li>For every vertex w adjacent to current vertex 'v' and also unknown, update the weight of the shortest path connecting  root to w through v as follows : </li>
+<pre>dw= min (dw, C<sub>v,w</sub>)                                                    
+where C<sub>v,w</sub>   is the cost of the edge (v,w).
+If minimum is C<sub>v,w</sub>  update pw = v
+</pre>
+ <li>From the unknown vertices, pick the vertex with minimum distance and make it as the current vertex. </li>
+</br>
+ <li>Repeat steps 4 & 5 until all vertices becomes known</li>
+
+</ol>
+
+<h3>Prim's Algorithm - Illustration</h3>
+<p><b>Graph</b></p>
+<img src="g32.png" style="width:300px;height:250px;margin-left:30px">
+<p>Initialize Array</p>
+<img src="g33.png" style="width:200px;height:250px;margin-left:30px">
+</br></br>
+
+<img src="g34.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g35.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g36.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g37.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g38.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g39.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g40.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g41.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g42.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g43.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g44.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g45.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g46.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g47.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g48.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g49.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g50.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+
+
+<h3>5.2.2 Kruskal's Algorithm</h3>
+<ul>
+<li>Created in 1957 by Joseph Kruskal</li>
+<li>Finds the MST by taking the smallest weight in the graph and connecting the two nodes and repeating until all nodes are connected to just one tree</li>
+<li>Works with edges, rather than nodes</li>
+<li>Two steps:</li>
+<ul>
+<li>Sort edges by increasing edge weight</li>
+<li>Select the first |V| - 1 edges that do not generate a cycle</li>
+</ul>
+</ul>
+
+
+<p>Consider following graph and sort the edges by increasing edge weight in table</p>
+<img src="g32.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g100.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+
+<img src="g51.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g52.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g53.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g54.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g55.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g56.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g57.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g58.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g59.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g60.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g61.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<img src="g62.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+
+
+
+
+</body>

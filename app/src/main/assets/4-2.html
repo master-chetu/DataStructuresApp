@@ -1,0 +1,349 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>4.2 Sorting</h3>
+<ul>
+<li>Sorting is a process of arranging items in ascending or descending order.</li>
+<li>Sorting is an operation that segregates items into groups according to specified criterion</li>
+</ul>
+<h3>Example :</h3>
+<ul>
+<li>Sorting Books in Library (Dewey system) </li>
+<li>Sorting Individuals by Height (Feet and Inches)</li>
+<li>Sorting Movies in Blockbuster (Alphabetical)</li>
+<li>Sorting Numbers (Sequential)</li>
+</ul>
+<h3>Sorting - Review of Complexity</h3>
+<ul>
+<li>Most of the primary sorting algorithms run on different space and time complexity. </li>
+<li>Time Complexity is defined to be the time the computer takes to run a program (or algorithm in our case). </li>
+<li>Space complexity is defined to be the amount of memory the computer needs to run a program.</li>
+</ul>
+
+<h3>Sorting - Types</h3>
+<li>Internal sorting </li>
+<ul>
+<li>The data that has to be sorted will be in the main memory always, implying faster access. </li>
+<li>Complete sorting will happen in main memory. </li>
+<li>Ex : Insertion sort, quick sort, heap sort, radix sort.</li>
+</ul>
+<li>External sorting</li>
+<ul>
+<li>Data will be on disks/tapes, i.e. outside main memory because data can s huge and cannot be stored in main memory. <li>
+<li>While sorting ,the data will be pulled over in chunks from disk to main memory.</li>
+<li>Later all the sorted data will be merged and stored back to disk, where it can fit.</li>
+<li>Example :  External merge sort</li>
+</ul>
+
+
+
+<h3>Sorting Algorithms</h3>
+<ul>
+<li>Bubble Sort</li>
+<li>Selection Sort</li>
+<li>Insertion Sort</li>
+<li>Merge Sort</li>
+<li>Quick sort</li>
+<li>Shell Sorts</li>
+<li>Heap Sort</li>
+<li>Radix Sort</li>
+<li>Swap Sort</li>
+</ul>
+<li>Performance of sorting techniques are compared in terms of computational complexity, time complexity and space complexity.</li>
+
+
+
+<h3>4.2.1 Bubble sort</h3>
+<li>Compare each element (except the last one) with its neighbor to the right</li>
+<ul>
+<li>If they are out of order, swap them</li>
+<li>This puts the largest element at the very end</li>
+<li>The last element is now in the correct and final place</li>
+</ul>
+<li>Compare each element (except the last two) with its neighbor to the right</li>
+<ul>
+<li>If they are out of order, swap them</li>
+<li>This puts the second largest element next to last</li>
+<li>The last two elements are now in their correct and final places</li>
+</ul>
+<li>Compare each element (except the last three) with its neighbor to the right</li>
+<ul>
+<li>Continue as above until you have no unsorted elements on the left</li>
+</ul>
+
+<h3>Example of bubble sort</h3>
+<img src="ss1.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Implementation - Bubble sort</h3>
+<img src="s2.png" style="width:300px;height:230px;margin-left:30px">
+
+<h3>Analysis of bubble sort</h3>
+<ul>
+<li>Outer loop is executed n-1 times (call it n, close enough)</li>
+<li>Each time the outer loop is executed, the inner loop is executed n-1 times at first, linearly dropping to just once.</li>
+<li>On average, inner loop executes about n/2 times for each execution of the outer loop</li>
+<li>In the inner loop, the comparison is always done (constant time), the swap might be done (also constant time)</li>
+<li>Result is n * n/2 * k, that is, O(n<sup>2</sup>/2 + k) = O(n<sup>2</sup>)</li>
+</ul>
+
+
+<h3>4.2.2 Selection sort</h3>
+<p>Given an array of length n,</p>
+<ul>
+<li>Search elements 0 through n-1 and select the smallest</li>
+<ul><li>Swap it with the element in location 0</ul></li>
+<li>Search elements 1 through n-1 and select the smallest</li>
+<ul><li>Swap it with the element in location 1</ul></li>
+<li>Search elements 2 through n-1 and select the smallest</li>
+<ul><li>Swap it with the element in location 2</ul></li>
+<li>Search elements 3 through n-1 and select the smallest</li>
+<ul><li>Swap it with the element in location 3</ul></li>
+<li>Continue in this fashion until there's nothing left to search</li>
+</ul>
+
+<h3>Example of selection sort</h3>
+<img src="s3.png" style="width:250px;height:230px;margin-left:30px">
+
+
+<h3>Implementation - selection sort</h3>
+<img src="s4.png" style="width:300px;height:230px;margin-left:30px">
+
+
+<h3>Example and analysis of selection sort</h3>
+<ul>
+<li>The selection sort might swap an array element with itself--this is harmless, and not worth checking for</li>
+<li>Analysis:</li>
+<ul>
+<li>The outer loop executes n-1 times</li>
+<li>The inner loop executes about n/2 times on average (from n to 2 times)</li>
+<li>Work done in the inner loop is constant (swap two array elements)</li>
+<li>Time required is roughly (n-1)*(n/2)</li>
+<li>You should recognize this as O(n<sup>2</sup>)</li>
+</ul>
+</ul>
+
+<h3>4.2.3 Insertion sort</h3>
+<ul>
+<li>Insertion sort consists of n - 1 passes. </li>
+<li>For pass p = 1 through n-1,</li>
+<ul>
+<li>insertion sort ensures that the elements in positions 0 through p are in sorted order. </li>
+<li>Insertion sort makes use of the fact that elements in positions 0 through p - 1 are already known to be in sorted order.</li>
+</ul>
+<li>This means: </li>
+<ul>
+<li>Finding the element's proper place</li>
+<li>Making room for the inserted element (by shifting over other elements)</li>
+<li>Inserting the element</li>
+</ul>
+</ul>
+
+<h3>One step of insertion sort</h3>
+<img src="s5.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Implementation - Insertion sort</h3>
+<img src="s6.png" style="width:300px;height:230px;margin-left:30px">
+
+<h3>Example</h3>
+<img src="s7.png" style="width:300px;height:230px;margin-left:30px">
+
+<h3>Analysis of insertion sort</h3>
+<ul>
+<li>We run once through the outer loop, inserting each of n elements; this is a factor of n</li>
+<li>On average, there are n/2 elements already sorted</li>
+<li>The inner loop looks at (and moves) half of these</li>
+<li>This gives a second factor of n/4</li>
+<li>Hence, the time required for an insertion sort of an array of n elements is proportional to n<sup>2</sup>/4</li>
+<li>Discarding constants, we find that insertion sort is O(n<sup>2</sup>)</li>
+</ul>
+
+
+
+<h3>4.2.4 Shell Sort</h3>
+<ul>
+<li>Shell sort, named after its inventor, Donald Shell, was one of the first algorithms to break the quadratic time barrier.</li>
+<li>It works by comparing elements that are distant.</li>
+<li>The distance between comparisons decreases as the algorithm runs until the last phase, in which adjacent elements are compared. </li>
+<li>For this reason, Shell sort is sometimes referred to as diminishing increment sort.</li>
+<li>Shell sort uses a sequence, h<sub>1</sub>, h<sub>2</sub>, . . . , h<sub>t</sub>, called the increment sequence. </li>
+<li>Any increment sequence will do as long as h<sub>1</sub>= 1, but obviously some choices are better than others.</li>
+<li>After a phase, using some increment h<sub>k</sub>, for every i,  we have    a[i] <= a[i+h<sub>k</sub>] (wherever this makes sense); </li>
+<li>All elements spaced h<sub>k</sub> apart are sorted. The file is then said to be h<sub>k</sub>-sorted. </li>
+<li>An important property of Shellsort is that an h<sub>k</sub> -sorted file that is then h<sub>k-1</sub> -sorted remains h<sub>k</sub> -sorted.</li>
+</ul>
+
+<h3>Shell Sort - Implementation</h3>
+<img src="s8.png" style="width:300px;height:250px;margin-left:30px">
+
+
+
+<h3>Example</h3>
+<img src="s9.png" style="width:300px;height:150px;margin-left:30px">
+
+
+
+<h3>4.2.5 Heap Sort</h3>
+<ul>
+<li>The priority queue can be used to sort N items by inserting every item into a binary heap.</li>
+<li>Then every item is extracted by calling deleteMin N times, thus sorting the result.</li>
+<li>An algorithm based on this idea is heap sort.</li>
+<li>It is an O(N logN) worst-case sorting algorithm.</li>
+<li>The main problem with this algorithm is that it uses an extra array for the items exiting the heap.</li>
+</ul>
+<p>We can avoid this problem as follows:</p>
+<ul>
+<li>After each deleteMin, the heap shrinks by 1.</li>
+<li>Thus the cell that was last in the heap can be used to store the element that was just deleted.</li>
+<li>Using this strategy, after the last deleteMin, the array will contain all elements in decreasing order. </li>
+<li>If we want them in increasing order we must use a max heap.</li>
+</ul>
+
+<p>Max heap after the build Heap phase for the input  sequence</p>
+<h3>59,36,58,21,41,97,31,16,26,53</h3>
+<img src="hs9.png" style="width:300px;height:180px;margin-left:30px">
+
+
+<p>Heap after the first deleteMax operation</p>
+<img src="hss10.png" style="width:300px;height:180px;margin-left:30px">
+
+
+<p>Heap after the Second deleteMax operation</p>
+<img src="hss11.png" style="width:300px;height:180px;margin-left:30px">
+
+<h3>Heap Sort - Implementation</h3>
+<img src="hss18.png" style="width:250px;height:180px;margin-left:30px">
+</br></br>
+<img src="hss19.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Analysis of Heap Sort</h3>
+<ul>
+<li>It is an O(N log N) algorithm.</li>
+<li>First phase: Build heap O(N)</li>
+<li>Second phase: N deleteMax operations: O(NlogN).</li>
+<li>Detailed analysis shows that, the average case for heap sort is poorer than quick sort.</li>
+<li>Heap sort usually takes about twice as long as quicksort.</li>
+<li>Heap sort therefore should be regarded as something of an insurance policy:</li>
+<li>On average, it is more costly, but it avoids the possibility of O(N<sup>2</sup>). </li>
+</ul>
+
+<h3>4.2.6 Quicksort</h3>
+<ul>
+<li>Fastest known sorting algorithm in practice</li>
+<li>Average case: O(N log N)</li>
+<li>Worst case: O(N<sup>2</sup>)</li>
+<ul><li>But, the worst case seldom happens.</li></ul>
+<li>Another divide-and-conquer recursive algorithm, like mergesort</li>
+</ul>
+<img src="ss10.png" style="width:300px;height:170px;margin-left:30px">
+</br></br>
+<img src="ss11.png" style="width:300px;height:300px;margin-left:30px">
+
+<img src="ss12.png" style="width:300px;height:300px;margin-left:30px">
+
+<h3>Pick a pivot</h3>
+<li>Use the first element as pivot</li>
+<ul>
+<li>if the input is random, ok</li>
+<li>if the input is presorted (or in reverse order)</li>
+<ul>
+<li>all the elements go into S2 (or ss1)</li>
+<li>this happens consistently throughout the recursive calls</li>
+<li>Results in O(n<sup>2</sup>) behavior (Analyze this case later)</li>
+</ul>
+</ul>
+<li>Choose the pivot randomly</li>
+<ul>
+<li>generally safe</li>
+<li>random number generation can be expensive</li>
+</ul>
+
+
+<h3>Better Pivot - Median of three</h3>
+<p>We will use median of three</p>
+<li>Compare just three elements: the leftmost, rightmost and center</li>
+<li>Swap these elements if necessary so that</li> 
+<ul>
+<li>A[left] 	    	= 	Smallest</li>
+<li>A[right] 	= 	Largest</li>
+<li>A[center]    	= 	Median of three</li>
+</ul>
+<li>Pick A[center] as the pivot</li>
+<li>Swap A[center] and A[right - 1] so that pivot is at second last position </li>
+<img src="ss13.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Pseudo-code </h3>
+<img src="ss14.png" style="width:300px;height:200px;margin-left:30px">
+<img src="ss15.png" style="width:300px;height:300px;margin-left:30px">
+
+<h3>Small arrays</h3>
+<ul>
+<li>For very small arrays, quicksort does not perform as well as insertion sort</li>
+<ul><li>How small depends on many factors, such as the time spent making a recursive call, the compiler, etc</li></ul>
+<li>Do not use quicksort recursively for small arrays</li>
+<ul><li>Instead, use a sorting algorithm that is efficient for small arrays, such as insertion sort</li></ul>
+</ul>
+
+<h3>4.2.7 Merge Sort</h3>
+<h3>Divide and Conquer Strategy</h3>
+<p>Recursive in structure  </p>
+<ul>
+<li>Divide the problem into sub-problems that are similar to the original but smaller in size</li>
+<li>Conquer the sub-problems by solving them recursively.  If they are small enough, just solve them in a straightforward manner.</li>
+<li>Combine the solutions to create a solution to the original problem</li>
+</ul>
+
+<h3>Merge Sort Through Divide & Conquer</h3>
+
+<p><b>Sorting Problem:</b> Sort a sequence of n elements into non-decreasing order.</p>
+<ul>
+<li><b>Divide:</b>  Divide the n-element sequence to be sorted into two subsequences of n/2 elements each</li>
+<li><b>Conquer: </b> Sort the two subsequences recursively using merge sort.</li>
+<li><b>Combine:</b>  Merge the two sorted subsequences to produce the sorted answer.</li>
+</ul>
+
+<h3>Merge Sort - Example</h3> 
+<img src="ss17.png" style="width:300px;height:300px;margin-left:30px">
+
+<h3>Merge-Sort (A, p, r)</h3>
+<p>INPUT: a sequence of n numbers stored in array A</p>
+<p>OUTPUT: an ordered sequence of n numbers</p>
+<img src="ss18.png" style="width:300px;height:150px;margin-left:30px">
+
+<p>Initial Call: MergeSort(A, 0, n-1)</p>
+<img src="ss19.png" style="width:300px;height:200px;margin-left:30px">
+<img src="s20.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Analysis of Merge Sort</h3>
+<ul>
+<li>Running time T(n) of Merge Sort:</li>
+<li>Divide: computing the middle takes &Theta;(1) </li>
+<li>Conquer: solving 2 subproblems takes 2T(n/2) </li>
+<li>Combine: merging n elements takes &Theta;(n) </li>
+<li>Total:</li>
+<ul>
+<li>T(n) = &Theta;(1) 			if n = 1</li>
+<li>T(n) = 2T(n/2) + &Theta;(n) 	if n &gt; 1</li>
+
+<li>T(n) = &Theta;(n log n)</li>
+</ul>
+</ul>
+
+
+<img src="ss16.png" style="width:300px;height:250px;margin-left:30px">
+
+
+
+</body>

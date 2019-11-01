@@ -1,0 +1,61 @@
+<body style="background-color:#303030;">  
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>3.3 Expression tree</h3>
+<ul>
+<li>Expression tree is a binary tree in which leaves represents operands, such as variables and constant names and other node contains operators. </li>
+<li>The inorder, postorder, preorder traversal of expression tree will produce infix, postfix and prefix notation for the expression under consideration.</li>
+</ul>
+<br>
+<img src="et1.png" style="width:300px;height:125px;margin-left:30px">
+<br>
+
+<h3>Constructing Expression Trees From Postfix</h3>
+<ul>
+<li>Read give expression one symbol at a time.</li>
+<li>If the symbol is an operand, we create a one-node tree and push a pointer to it onto a stack. (stack contains tree nodes)</li>
+<li>If the symbol is an operator, pop pointers to two trees T1 and T2 from the stack (T1 is popped first) </li>
+<li>Now form a new tree whose root is the operator and whose left and right children point to T2 and T1 respectively. </li>
+<li>Push a pointer to this new tree onto the stack.</li>
+<li>Repeat this till the last symbol and final the constructed expression tree will alone be remaining in the stack.</li>
+</ul>
+
+<h3>Input : a b + c d e + * *</h3>
+<ul>
+<li>The first two symbols are operands, so we create one-node trees and push pointers to them onto a stack.</li>
+<li>Next, a '+' is read, so two pointers to trees are popped. (T1 - b, T2 - a)</li>
+<li>A new tree is formed with + as the root and T2 as left child and T1 as right child, and a pointer to it is pushed onto the stack</li>
+</ul>
+<br>
+<img src="et2.png" style="width:300px;height:125px;margin-left:30px">
+<br>
+<ul>
+<li>Next, c, d, and e are read, and for each a one-node tree is created and a pointer to the corresponding tree is pushed onto the stack.</li>
+<li>After + is read, the tree will be </li>
+</ul>
+<br>
+<img src="et3.png" style="width:300px;height:125px;margin-left:30px">
+<br>
+<ul>
+<li>Continuing this, '*' is read, so we pop two tree pointers and form a new tree with a '*' as root.</li>
+<li>Finally, the last symbol is read, two trees are merged, and a pointer to the final tree is left on the stack.</li>
+</ul>
+<br>
+<img src="et4.png" style="width:300px;height:125px;margin-left:30px">
+<br>
+
+
+</body>

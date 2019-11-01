@@ -1,0 +1,214 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>2.5 Hash Tables</h3>
+
+<h3>2.5.1 The Search Problem</h3>
+<li>Find items with keys matching a given search key</li>
+<ul>
+<li>Given an array A, containing n keys, and a search key x, find the index i such as x=A[i]</li>
+<li>A key could be part of a large record.</li>
+</ul>
+
+<br>
+<img src="h1.png" style="width:300px;height:100px;margin-left:30px">
+<br>
+
+<h3>Applications of Search Problem</h3>
+<p>Keeping track of customer account information at a bank</p>
+<ul><li>Search through records to check balances and perform transactions</li></ul>
+<p>Keep track of reservations on flights</p>
+<ul><li>Search to find empty seats, cancel/modify reservations</li></ul>
+<p>Search engine </p>
+<ul><li>Looks for all documents containing a given word</li></ul>
+
+<p>Special Case : Dictionary  - A data structure that supports mainly two basic operations: insert a new item and return an item with a given key</p>
+<p>Queries: return information about the set S:<p>
+<li>Search (S, k)</li>
+<li>Minimum (S), Maximum (S)</li>
+<li>Successor (S, x), Predecessor (S, x)</li>
+<p>Modifying operations: change the set</p>
+<li>Insert (S, k)</li>
+<li>Delete (S, k) – not very often</li>
+
+<h3>2.5.2 Direct Addressing</h3>
+<p>Assumptions:</p>
+<ul><li>Key values are distinct</li>
+<li>Each key is drawn from a universe, U = {0, 1, . . . , m - 1}</li></ul>
+<p>Idea:</p>
+<ul><li>Store the items in an array, indexed by keys</li></ul>
+
+<p>Direct-address table representation:<p>
+<ul>
+<li>An array T[0 . . . m - 1]</li>
+<li>Each slot, or position, in T corresponds to a key in U</li>
+<li>For an element x with key k, a pointer to x or x itself will be placed in location T[k] </li>
+<li>If there are no elements with key k in the set, T[k] is empty. 	</li>
+</ul>
+
+<br>
+<img src="h2.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+
+
+<h3>2.5.3 Hashing</h3>
+<ul>
+<li>Hashing is the transformation of a string of characters into a usually shorter fixed-length value or key that represents the original string. </li>
+<li>Hashing is used to index and retrieve items in a database because it is faster to find an item using the shorter hashed key than to find it using the original value.</li>
+<li>Hash functions are primarily used in hash tables, to quickly insert, delete and locate a data record given its search key in a constant time.</li>
+<li>Hash tables, are used to implement associative arrays and dynamic sets.</li>
+</ul>
+
+<h3>Hash Tables</h3>
+<p>Idea:</p>
+<ul><li>Use a function h to compute the slot for each key</li>
+<li>Store the element in slot h(k)</li></ul>
+
+<p>A hash function h transforms a key into an index in a hash table T[0…m-1]:</p>
+		<li>h : U &rarr; {0, 1, . . . , m - 1}</li>
+<p>We say that k hashes to slot h(k)</li>
+<p>Advantages:</p>
+<ul><li>Reduce the range of array indices handled: m instead of |U|</li>
+<li>Storage is also reduced</li></ul>
+
+<h3>Example : Hash Tables</h3>
+<br>
+<img src="h3.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+
+<h3>Collisions</h3>
+<ul>
+<li>Two or more keys hash to the same slot!!</li>
+<li>For a given set K of keys </li>
+<ul><li>If |K| &le; m, collisions may or may not happen, depending on the hash function </li>
+<li>If |K| > m, collisions will definitely happen (i.e., there must be at least two keys that have the same hash value)</li></ul>
+<li>Avoiding collisions completely is hard, even with a good hash function</li>
+</ul>
+
+<h3>Handling Collisions</h3>
+<ul>
+<li>Separate Chaining / open hashing</li>
+<li>Open addressing / closed hashing</li>
+<ul><li>Linear probing</li>
+<li>Quadratic probing</li>
+<li>Double hashing</li></ul>
+</ul>
+
+<h3>Handling Collisions Using Chaining</h3>
+
+<h3>Separate Chaining</h3>
+<p>Idea:</p>
+<ul><li>Put all elements that hash to the same slot into a linked list</li></ul>
+
+<br>
+<img src="h4.png" style="width:300px;height:250px;margin-left:30px">
+<br>
+
+<ul><li>Slot j contains a pointer to the head of the list of all elements that hash to j</li>
+<li>Instead of list, binary search tree or one more  hash table also can be used.</li></ul>
+
+<h3>Separate Chaining Hash Table - Example</h3>
+<br>
+<img src="h5.png" style="width:300px;height:300px;margin-left:30px">
+<br>
+
+<h3>Separate Chaining - Drawbacks</h3>
+<ul>
+<li>Need two data structures for implementation - table for index/key values and list for actual values.</li>
+<li>Memory consumed by pointers.</li>
+<li>Search / find takes more time since entire list matching with search key should be traversed.</li>
+<ul><li>As chains get longer, search time increases to O(n) in the worst case.</li></ul>
+<li>Parts of the array might never be used.</li>
+<li>Soln : use the “unused” space in the array instead of using chains to make more space.</li>
+</ul>
+
+
+<h3>Open addressing / closed hashing</h3>
+<ul>
+<li>Given an item X, try  cells h0(X), h1(X), h2(X), ..., hi(X) where</li>
+<ul><li>hi(X) = (Hash(X) + F(i)) mod TableSize </li></ul>
+<li>Here F is the collision resolution function.</li> 
+<li>Some possibilities for F are</li>
+<ul><li>Linear Probing: F(i) = i </li>
+<li>Quadratic Probing: F(i) = i<sup>2</sup> </li>
+<li>Double Hashing: F(i) = i.Hash2(X)</li></ul>
+</ul>
+
+<h3>Linear Probing</h3>
+<p>Main Idea: <p>
+<li>When collision occurs, scan down the array one cell at a time looking for an empty cell</li>
+	<ul><li>hi(X) = (Hash(X) + i) mod TableSize    (i = 0, 1, 2, ...)</li></ul>
+<li>Compute hash value and increment it until a free cell is found</li>
+<li>Advantages: - Insertion never fails if the table has at least one free field.</li>
+
+<h3>Linear Probing - Examples</h3>
+<br>
+<img src="h6.png" style="width:300px;height:300px;margin-left:30px">
+<br>
+
+<h3>Drawbacks of Linear Probing</h3>
+<li>Works until array is full, but as number of items N approaches TableSize, access time approaches O(N)</li>
+<li>Very prone to cluster formation (as in our example)</li>
+<ul><li>If a key hashes anywhere into a cluster, finding a free cell involves going through the entire cluster - and making it grow!</li>
+<li>Primary clustering – clusters grow when keys hash to values close to each other</li></ul>
+<li>Can have cases where table is empty except for a few clusters</li>
+<ul><li>Does not satisfy good hash function criterion of distributing keys uniformly</li></ul>
+
+<h3>Quadratic Probing</h3>
+<p>Main Idea: </p>
+<li>Spread out the search for an empty slot – Increment by i2 instead of i </li>
+<li>hi(X) = (Hash(X) + i<sup>2</sup>) % TableSize  </li>
+<ul>
+<li>h0(X) = Hash(X) % TableSize </li>
+<li>h1(X) = Hash(X) + 1 % TableSize</li>
+<li>h2(X) = Hash(X) + 4 % TableSize</li>
+<li>h3(X) = Hash(X) + 9 % TableSize</li>
+</ul>
+
+<h3>Quadratic Probing - Examples</h3>
+<br>
+<img src="h7.png" style="width:300px;height:300px;margin-left:30px">
+<br>
+
+<h3>Problem With Quadratic Probing</h3>
+<br>
+<img src="h8.png" style="width:300px;height:300px;margin-left:30px">
+<br>
+
+<h3>Double Hashing</h3>
+<p>Idea: </p>
+<p>Spread out the search for an empty slot by using a second hash function</p>
+<p>No primary or secondary clustering</p>
+
+<ul><li>hi(X) = (Hash1(X) + i.Hash2(X)) mod TableSize  for i = 0, 1, 2,...</li> </ul>
+
+<p>Good choice of Hash2(X) can guarantee "does not get stuck". 
+
+<p>For Integer keys: Hash2(X) = R - (X mod R) where R is a prime smaller than TableSize   
+
+<h3>Double Hashing Example</h3>
+<br>
+<img src="h9.png" style="width:300px;height:300px;margin-left:30px">
+<br>
+
+<h3>Double Hashing - Advantages</h3>
+<ul>
+<li>Compared to linear probing access becomes efficient at a higher load factor. </li>
+<li>Resolution sequences for different elements are different even if the first hash function hashes the elements to the same field. </li>
+<li>If the hash functions are chosen appropriately, insertion never fails if the table has at least one free field.</li>
+</ul>
+
+</body>

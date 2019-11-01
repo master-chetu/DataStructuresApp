@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="one">
+        <item>If there is no base criteria in a recursive program, the program will</item>
+        <item>not be executed.</item>
+        <item>execute until all conditions match.</item>
+        <item>execute infinitely.</item>
+        <item>obtain progressive approach.</item>
+        <item>2</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="two">
+        <item>Linear arrays are also called.......</item>
+        <item>One-dimensional array</item>
+        <item>Vertical array</item>
+        <item>Horizontal array</item>
+        <item>All of the above</item>
+        <item>0</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="three">
+        <item>#include stdio.h\n
+
+int fun(int n)
+{\n
+    if (n == 4)\n
+       return n;\n
+    else return 2*fun(n+1);
+}\n
+
+
+int main()
+{\n
+   printf("%d ", fun(2));\n
+   return 0;
+}\n
+</item>
+        <item>4</item>
+        <item>8</item>
+        <item>16</item>
+        <item>Run time error</item>
+        <item>2</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="four">
+        <item>What does the following function print for n = 25?\n
+void fun(int n)
+{\n
+  if (n == 0)\n
+    return;\n
+
+  printf("%d", n%2);\n
+  fun(n/2);
+}\n
+</item>
+        <item>11001</item>
+        <item>10011</item>
+        <item>11111</item>
+        <item>00000</item>
+        <item>1</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="five">
+        <item>What does the following function do?\n
+int fun(int x, int y)
+{\n
+    if (y == 0)   return 0;\n
+    return (x + fun(x, y-1));
+}\n
+</item>
+        <item>x + y</item>
+        <item>x + x*y</item>
+        <item>x*y</item>
+        <item>xy</item>
+        <item>2</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="six">
+        <item>Consider the following recursive function fun(x, y). What is the value of fun(4, 3)\n
+int fun(int x, int y)
+{\n
+  if (x == 0)\n
+    return y;\n
+  return fun(x - 1,  x + y);
+}\n
+</item>
+        <item>13</item>
+        <item>12</item>
+        <item>9</item>
+        <item>10</item>
+        <item>0</item>
+        <item>0</item>
+
+    </string-array>
+
+
+</resources>

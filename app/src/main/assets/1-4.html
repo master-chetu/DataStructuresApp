@@ -1,0 +1,48 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>1.4 Unions in C</h3>
+<ul>
+<li>A union is a user defined data type like structure.</li> 
+<li>The union groups logically related variables into a single unit.</li>
+<li>The union data type allocate the space equal to space need to hold the largest data member of union.</li> 
+<li>The union allows different types of variable to share same space in memory.</li> 
+<li>There is no other difference between structure and union than internal difference.</li> 
+<li>The method to declare, use and access the union is same as structure except the keyword union.</li>
+</ul>
+
+<h3>1.4.1 Example of Union</h3>
+<ul>
+<li>The union of Employee is declared as</li>
+
+<pre> 
+union employee
+{
+int  emp_id;
+char name[20];
+float salary;
+char address[50];
+int dept_no;
+int age;  
+}e;  
+</pre>
+</ul>
+
+<h3>1.4.2 Memory Space Allocation </h3>
+<br>
+<img src="u1.png" style="width:250px;height:350px;margin-left:40px">
+<br>
+</body>

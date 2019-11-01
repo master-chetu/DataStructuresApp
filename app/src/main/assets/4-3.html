@@ -1,0 +1,90 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+
+<h3>4.3 Searching</h3>
+
+<img src="s21.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<li>A search algorithm is an algorithm for finding an item with specified properties among a collection of items.</li>
+<ul>
+<li>The items may be stored individually as records in a database </li>
+<li>They may be elements of a search space defined by a mathematical formula or procedure, such as the roots of an equation with integer variables; </li>
+<li>They may be a combination of the two, such as the Hamiltonian circuits of a graph.</li>
+</ul>
+
+<h3>Types of search algorithms : </h3>
+<li>Algorithms that don't make any assumptions about the order of the list</li>
+<ul><li>Ex : Sequential/Linear Search  - Compares the element to be found with every value in the list sequentially one after another</li></ul>
+<li>Algorithms that assume the list is already in order. </li>
+<ul><li>Ex : Binary Search  - Based the value to be search, the search space is halved every time till the value is found.</li></ul>
+
+<h3>4.3.1 Linear Searching</h3>
+<h3>Searching in an Unsorted Array</h3>
+
+<img src="s22.png" style="width:200px;height:250px;margin-left:30px">
+<img src="s23.png" style="width:200px;height:350px;margin-left:30px">
+
+<h3>Implementation</h3>
+<img src="s24.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Analysis of Linear Searching</h3>
+<ul>
+<li>Best case	-	O(1)</li>
+<ul><li>Locate desired item first</li></ul>
+
+<li>Worst case - O(n)</li>
+<ul><li>Locate item at end of list; so, must look at all the items</li></ul>
+
+<li>Average case - O(n)</li>
+<ul><li>Must look at half the items </li>
+<li>O(n/2) is still O(n)</li></ul>
+</ul>
+
+
+<h3>4.3.2 Binary Searching</h3>
+
+<p>Searching in an Sorted Array - Target found</p>
+
+<img src="s25.png" style="width:300px;height:250px;margin-left:30px">
+</br></br>
+<p>Searching in an Sorted Array - Target Not found</p>
+<img src="s26.png" style="width:300px;height:280px;margin-left:30px">
+
+<h3>Implementation</h3>
+<img src="s27.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>Analysis of Binary Searching</h3>
+<ul>
+<li>Best case	-	O(1)</li>
+<ul><li>Locate desired item first</li></ul>
+
+<li>Worst case - O(logn)</li>
+<ul><li>must look at all the items</li></ul>
+
+<li>Average case - O(logn)</li>
+<ul><li>Must look at half the items </li></ul>
+
+</ul>
+
+
+
+
+
+
+
+
+</body>

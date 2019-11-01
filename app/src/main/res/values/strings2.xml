@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="one2">
+        <item>Which one of the following is an application of Queue Data Structure?</item>
+        <item>When a resource is shared among multiple consumers.</item>
+        <item>When data is transferred asynchronously (data not necessarily received at same rate as sent) between two processes</item>
+        <item>Load Balancing</item>
+        <item>All of the above</item>
+        <item>3</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="two2">
+        <item>A priority queue can efficiently implemented using which of the following data structures? Assume that the number of insert and peek (operation to see the current highest priority item) and extraction (remove the highest priority item) operations are almost same.</item>
+        <item>Array</item>
+        <item>Linked List</item>
+        <item>Heap Data Structures like Binary Heap, Fibonacci Heap</item>
+        <item>None of the above</item>
+        <item>2</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="three2">
+        <item>Which of the following is true about linked list implementation of queue?</item>
+        <item>In enqueue operation, if new nodes are inserted at the beginning of linked list, then in dequeue operation, nodes must be removed from end.</item>
+        <item>In enqueue operation, if new nodes are inserted at the end, then in dequeue operation, nodes must be removed from the beginning</item>
+        <item>Both of the above</item>
+        <item>None of the above</item>
+        <item>2</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="four2">
+        <item>Which of the following is true about linked list implementation of stack?</item>
+        <item>In push operation, if new nodes are inserted at the beginning of linked list, then in pop operation, nodes must be removed from end.</item>
+        <item>In push operation, if new nodes are inserted at the end, then in pop operation, nodes must be removed from the beginning.</item>
+        <item>Both of the above</item>
+        <item>None of the above</item>
+        <item>3</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="five2">
+        <item>The following postfix expression with single digit operands is evaluated using a stack:\n
+              8 2 3 ^ / 2 3 * + 5 1 * - \n
+Note that ^ is the exponentiation operator. The top two elements of the stack after the first * is evaluated are:
+</item>
+        <item>6, 1</item>
+        <item>5, 7</item>
+        <item>3, 2</item>
+        <item>1, 5</item>
+        <item>0</item>
+        <item>0</item>
+
+
+    </string-array>
+    <string-array name="six2">
+        <item>In conversion from prefix to postfix using stack data-structure, if operators and operands are pushed and popped exactly once, then the run-time complexity is −</item>
+        <item>Ο(1)</item>
+        <item>Ο(n)</item>
+        <item>Ο(log n)</item>
+        <item>Ο(n2</item>
+        <item>1</item>
+        <item>0</item>
+
+
+    </string-array>
+
+
+
+</resources>

@@ -1,0 +1,170 @@
+<body style="background-color:#303030;">
+<style>
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<pre>
+#include< stdio.h >
+#include< stdlib.h >
+#include< alloc.h >
+//#define NULL 0
+
+struct Node;
+
+typedef struct Node* ptrtoNode;
+typedef ptrtoNode List;
+typedef ptrtoNode Position;
+
+struct Node
+{
+	int data;
+	Position Next;
+};
+
+int IsEmpty(List L)
+{
+	if (L->Next == NULL)
+		return 1;
+	else
+		return 0;
+}
+
+int IsLast(Position p, List L)
+{
+	if(p->Next == NULL)
+		return 1;
+	else
+		return 0;
+}
+
+Position Find(int d, List L)
+{
+	Position p;
+	p= L->Next;
+	while (p!=NULL && p->data!=d)
+		p=p->Next;
+	return p;
+}
+
+Position FindPrevious(int d, List L)
+{
+	Position p;
+	p= L;
+	while (p->Next!=NULL && p->Next->data!=d)
+		p=p->Next;
+	return p;
+}
+
+Position FindLast(List L)
+{
+	Position p;
+	p=L;
+	if (p->Next != NULL)
+		p=p->Next;
+
+	return p;
+
+}
+
+void DeleteElement(int d, List L)
+{
+	Position p, TmpCell;
+	p = FindPrevious(d,L);
+	if(!IsLast(p,L))
+	{
+		TmpCell = p->Next;
+		p->Next = TmpCell->Next;
+		free(TmpCell);
+	}
+	else
+		printf("\nElement Doest not Exist in List \n");
+}
+
+void InsertAfter(int d, List L, Position p)
+{
+	Position TmpCell;
+	TmpCell = (struct Node *)malloc(sizeof(struct Node *));
+	if (TmpCell == NULL)
+		printf("\n Memory not available for new node creation\n");
+	else
+	{
+		TmpCell->data = d;
+		TmpCell->Next = p->Next;
+		p->Next = TmpCell;
+	}
+}
+
+void AddData(int d, List L)
+{
+	Position p, TmpCell;
+	p=FindLast(L);
+	TmpCell=(struct Node *)malloc(sizeof(struct Node *));
+	TmpCell->data = d;
+	p->Next = TmpCell;
+	TmpCell->Next = NULL;
+}
+
+void DisplayList(List L)
+{
+	Position p;
+	p=L->Next;
+	while (p!=NULL)
+	{
+		printf("   %d ",p->data);
+		p=p->Next;
+	}
+}
+
+void main()
+{
+	int op, element;
+	List L;
+	L = (struct Node *)malloc(sizeof(struct Node *));
+	L->Next = NULL;
+	printf("%u",L->Next);
+	do
+	{
+		printf("\n1. Add Element");
+		printf("\n2. Insert an Element");
+		printf("\n3. Delete an Element");
+		printf("\n4. Find an Element");
+		printf("\n5. Dsiplay List");
+		printf("\n6.Exit");
+		printf("\nEnter your option : ");
+		scanf("%d", &op);
+		switch(op)
+		{
+			case 1: printf("Enter the data : ");
+				scanf("%d",&element);
+				AddData(element,L);
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4: printf("Enter the data to find :");
+				scanf("%d",&element);
+				if(Find(element, L)!=NULL)
+					printf("present");
+				else
+					printf("not present");
+				break;
+			case 5:  DisplayList(L);
+
+				break;
+
+			default: break;
+		}
+		}while(op !=6);
+		getch();
+}
+
+
+
+
+
+
+
+

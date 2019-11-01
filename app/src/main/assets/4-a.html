@@ -1,0 +1,154 @@
+<body style="background-color:#303030;">
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+		color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+<h3>1. State the need for priority in queues. (Remember)</h3>
+<ul>
+<li>Case 1 :
+<ul>
+<li>Job Submitted to a printer
+<Li>Currently follows first in first out
+<li>Performance can be improved by allowing important documents to get printed first
+<li>Compared to 100-page document, one page document can be printed first so that overall waiting time can be reduced
+</ul>
+<li>Case 2 :
+<ul>
+<Li>Multi user environment in an operating system
+<li>Preference can be given to short jobs, important jobs so that overall waiting time can be decreased and productivity can be improved.
+</ul>
+</ul>
+<h3>2. What is meant by priority queue?(Remember)</h3>
+<p>A priority queue is an abstract data type which is like a regular queue data structure, but where additionally each element has a "priority" associated with it. In a priority queue, an element with high priority is served before an element with low priority. If two elements have the same priority, they are served according to their order in the queue. Priority queues are often implemented with heaps.
+</P>
+<h3>3. Define binary heap. (Remember)</h3>
+<p>A binary heap is a complete binary tree which satisfies the heap ordering property. The ordering can be one oftwo types:</p>
+<p>*Min-heap property: the value of each node is greater than or equal to the value of its parent, with theminimum-value element at root.</p>
+<p>*Max-heap property: the value of each node is less than or equal to the value of its parent, with themaximum-value element at the root.</p>
+<p>
+<img src="four1.png" style="width:300px;height:250px;margin-left:20px"></p>
+<h3>4. What are the 2 properties of a binary heap? (Remember)</h3>
+<ul>
+<li>
+Structure Property: The heap is a complete binary tree which means the tree is completely filled with the exception of the bottom levelthat is filled from left to right.
+<li>Heap Order Property: In a heap, for every node x, the key in the parent of x is smaller than the key in x with thepossible exception of a root. Such a heap is known as MinHeap.
+</ul>
+<h3>5. What is meant by percolate up? (Remember)</h3>
+<p>To insert an element X into the heap:
+<ul>
+<li> We create a hole in the next available location.
+<Li>If X can be placed there without violating the heap property, then we do so and are done.Otherwise
+<li>we bubble up the hole toward the root by sliding the element in the hole's parent down.
+<li>We continue this until X can be placed in the hole.
+<li>This general strategy is known as a percolate up
+</ul>
+<h3>6.What is meant by percolate down? (Remember)</h3>
+<p>To perform DeleteMin in a min-heap:
+<ul>
+<li>Remove the minimum; so, a hole is created at the root.
+<li>The last element X must move somewhere in the heap.
+<li>If X can be placed in the hole then we are done.
+<li>Otherwise,
+<li>We slide the smaller of the hole's children into the hole, thus pushing the hole one level down.
+<li>We repeat this until X can be placed in the hole.
+<li>This strategy is called as a percolate down
+</ul>
+<h3>7. What is meant by sorting? Also, mention its two types. (Remember)</h3>
+<ul>
+<li>Sorting is ordering a list of objects. Otherwise, sorting is a process of arranging items in ascending or descending order.
+<li>If the number of objects issmall enough so that all elements fit into the main memory, sorting is called internal sorting.
+<li>If the number of objects is solarge so that some of them reside on external storage during sorting, it is called external sorting.
+</ul>
+<h3>8. How will you assess the performance of a sorting technique? (Remember)</h3>
+<p>
+Performance of sorting techniques are assessed in terms of
+</p>
+<ul>
+<li>computational complexity
+<li>time complexity and
+<li>space complexity
+</ul>
+<h3>9.What is the main idea in Bubble sort? (Remember)</h3>
+<p>
+The basic idea underlying the bubble sort is to pass through the file sequentially several times.Each pass consists of comparing each element in the file with its successor (x[i] and x[i+1] and interchanging the two elements if they are not in proper order. At the end of first pass, a maximum element will reach the last place. In subsequent passes, the next maximum elements will be reaching their correct places.
+</p>
+<h3>10. Implement bubble sort. (Create)</h3>
+<pre>
+voidbubbleSort(int array[], int n)
+{ inti, j, temp; 
+for (i = n - 1; i> 0; i--)
+{
+for (j = 0; j< i; j++)
+{ 
+if (array[j] >array[j + 1])
+{
+temp = array[j];
+array[j] = array[j+1];
+array[j+1] = temp; } } } }
+</pre>
+<h3>11. Analyze bubble sort. (Analyse)</h3>
+<li>In bubble sort implementation, outer loop is executed n-1 times (call it n, close enough)
+<li>Each time the outer loop is executed, the inner loop is executed n-1 times at first, linearly dropping to just once.
+<Li>On average, inner loop executes about n/2 times for each execution of the outer loop
+<li>In the inner loop, the comparison is always done (constant time), the swap might be done (also constant time)
+<li>Result is n * n/2 * k, that is, O(n2/2 + k) = O(n2)
+</ul>
+<h3>12. What is meant by divide and conquer strategy? (Remember)</h3>
+<ul>
+<li>This solution methodology is recursive in structure
+<li>Divide the problem into sub-problems that are similar to the original but smaller in size
+<li>Conquer the sub-problems by solving them recursively. If they are small enough, just solve them in a straightforward manner.
+<li>Combine the solutions to create a solution to the original problem
+<li>Example: Merge and Quick sort techniques follow this strategy.
+</ul>
+<h3>13. Write down the idea behind merge sort. (Remember)</h3>
+<p>Merge sort follows divide and conquer strategy for a given sent of n unsorted elements.</p>
+<ul>
+<li>Divide: Divide the n-element list to be sorted into two sub lists of n/2 elements each until it can no more be divided
+<li>Conquer:If it is only one element in the list it is already sorted, return.
+<li>Combine: Merge the two sorted sub lists into new list in sorted order.
+</ul>
+<h3>14. Write down the idea behind quick sort. (Remember)</h3>
+<ul>
+<Li>Divide step:
+<li>Pick any element (pivot) v in S, a set of n elements
+<Li>Partition S-{v} into two disjoint groups
+<img src="four3.png" style="width:300px;height:75px">
+<li>Conquer step: recursively sort S1 and S2using quick sort
+<li>Combine step: sorted S1 (by the time returned from recursion), followed by v, followed by sorted S2 (i.e., nothing extra needs to be done) will produce new sorted list.
+</ul>
+<h3>15. What is meant by searching? Write types of searching algorithms. (Remember)</h3>
+<p>Searching is the process of finding the presence of a particular element among collection of elements.</p>
+<p>Types of search algorithms:</p>
+<ul>
+<li>1. Algorithms that don’t make any assumptions about the order of the list
+<li>Ex : Sequential/Linear Search - Compares the element to be found with every value in the list sequentially one after another
+<li>2. Algorithms that assume the list is already in order.
+<li>Ex :Binary Search - Based on the value to be searched, the search space is halved every time till the value is found.
+</ul>
+<h3>16. Write the algorithm for binary search. (Remember)</h3>
+<ul>
+<li>Find the middle element for the given set of elements.
+<li>Check the middle element with the search value
+<Li>If the middle element is equal to search value, then search is success and over
+<li>If the search value is less than middle element, continue search with the elements before the middle element.
+<li>If the search value is higher than middle element, continue search with the elements after middle element.
+</ul>
+<h3>17. Compare various sorting algorithms. (Analyse)</h3>
+<img src="four2.png" style="width:300px;height:250px;margin-left:20px">

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="one5">
+        <item>The data structure required for Breadth First Traversal on a graph is</item>
+        <item>queue</item>
+        <item>stack</item>
+        <item>array</item>
+        <item>None of the above</item>
+        <item>0</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="two5">
+        <item>Which of the following statements is/are TRUE for an undirected graph? P: Number of odd degree vertices is even Q: Sum of degrees of all vertices is even</item>
+        <item>P Only</item>
+        <item>Q Only</item>
+        <item>Both P and Q</item>
+        <item>Neither P nor Q</item>
+        <item>2</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="three5">
+        <item>Which of the following algorithms can be used to most efficiently determine the presence of a cycle in a given graph ?</item>
+        <item>Depth First Search</item>
+        <item>Breadth First Search</item>
+        <item>Prims Minimum Spanning Tree Algorithm</item>
+        <item>Kruskal Minimum Spanning Tree Algorithm</item>
+        <item>0</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="four5">
+        <item>Which of the following condition is sufficient to detect cycle in a directed graph?</item>
+        <item>There is an edge from currently being visited node to an already visited node.</item>
+        <item>There is an edge from currently being visited node to an ancestor of currently visited node in DFS forest.</item>
+        <item>Every node is seen twice in DFS</item>
+        <item>None of the above</item>
+        <item>1</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="five5">
+        <item>Let G be a graph with n vertices and m edges. What is the tightest upper bound on the running time on Depth First Search of G? Assume that the graph is represented using adjacency matrix.  </item>
+        <item>O(n)</item>
+        <item>O(m+n)</item>
+        <item>O(n2)</item>
+        <item>O(mn)</item>
+        <item>2</item>
+        <item>0</item>
+
+    </string-array>
+    <string-array name="six5">
+        <item>Let G be a simple graph with 20 vertices and 8 components. If we delete a vertex in G, then number of components in G should lie between ____.  </item>
+        <item>8 and 20</item>
+        <item>8 and 19</item>
+        <item>7 and 19</item>
+        <item>7 and 20</item>
+        <item>2</item>
+        <item>0</item>
+
+    </string-array>
+
+</resources>

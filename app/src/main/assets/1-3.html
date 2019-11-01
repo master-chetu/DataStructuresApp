@@ -1,0 +1,153 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>1.3 Structures in C</h3>
+<ul>
+<li>User defined data type.</li>
+<li>Groups logically related data items of different data types into a single unit.</li> 
+<li>All the elements of a structure are stored at contiguous memory locations.</li> 
+<li>A variable of structure type can store multiple data items of different data types under the one name.</li> 
+<li>As the data of employee in company that is name, Employee ID, salary, address, phone number is stored in structure data type.</li>
+</ul>
+
+<h3>1.3.1 Defining of Structure</h3>
+<p>A structure has to defined, before it can used. The syntax of defining a structure is</p>
+<pre>
+struct  struct_name
+{
+data_type variable_name;
+data_type variable_name;
+...
+data_type variable_name;
+};
+</pre>
+
+<h3>1.3.2 Example of Structure</h3>
+<p>The structure of Employee is declared as<p>
+<pre> 
+struct employee
+{
+int  emp_id;
+char name[20];
+float salary;
+char address[50];
+int dept_no;
+int age;  
+};  
+</pre>
+<h3>1.3.3 Memory Space Allocation</h3>
+<br>
+<img src="st1.png" style="width:250px;height:400px;margin-left:40px">
+<br>
+
+<h3>1.3.4 Declaring a Structure Variable </h3>
+<p>A structure has to declared, after the body of structure has defined. The syntax of declaring a structure is</p>
+<li>struct struct_name variable_name;</li>
+<p>The example to declare the variable for defined structure “employee”</p>
+<li>struct employee e1;</li>
+<p>Here e1 variable contains 6 members that are defined in structure. </p>
+
+<h3>1.3.5 Initializing  a Structure Members</h3>
+<p>The members of individual structure variable is initialize one by one or in a single statement. The example to initialize a structure variable is <p>
+<pre>
+struct employee e1 = {1, "Suresh",12000, "3  vikas colony Madurai",10, 35};
+e1.emp_id=1;		  	
+e1.dept_no=10;                 
+e1.name="Suresh"; 			
+e1.age=35; 
+e1.salary=12000;
+e1.address="3  vikas colony Madurai";	
+</pre>
+
+<h3>1.3.6 Accessing a Structure Members</h3>
+<ul>
+<li>The structure members cannot be directly accessed in the expression.</li>
+<li>They are accessed by using the name of structure variable followed by a dot and then the name of member variable.</li>
+<li>The method used to access the structure variables are e1.emp_id, e1.name, e1.salary, e1.address, e1.dept_no, e1.age.</li>
+<li>The data with in the structure is stored and printed by this method using scanf and printf statement in c program.</li>
+</ul>
+
+<h3>1.3.7 Structure Assignment</h3>
+<p>The value of one structure variable is assigned to another variable of same type using assignment statement. If the e1 and e2 are  structure variables of type employee then the statement</p> 
+		<li>e1 = e2; </li>
+<p>assign value of structure variable e2 to e1. The value of each member of e2 is assigned to corresponding members of e1.</p>
+
+<h3>1.3.8 Array of Structure</h3>
+<ul>
+<li>C allows to create an array of variables of structure.</li>
+<li>The array of structure is used to store the large number of similar records.</li>
+<li>For example to store the record of 100 employees then array of structure is used.</li>
+<li>This is similar to array. </li>
+<li>The syntax to define the array of structure is</li> 
+<pre>
+struct struct_name var_name(array_name)  [value];
+ For Example:-
+      struct employee e1[100];
+</pre>
+</ul>
+
+<h3>1.3.9 Structures within Structures</h3>
+<p>C define a variable of structure type as a member of other structure type. </p>
+<p>The syntax to define the structure within structure is </p>
+<pre>
+  	struct struct_name
+	{
+		data_type variable_name;
+		struct struct_name
+			    { 
+				data_type variable_name;
+			    ....
+				}struct_variable;
+		data_type variable_name;
+	};
+</pre>
+
+
+<h3>1.3.10 Accessing Structures within Structures</h3>
+<pre>For Example:-
+			e1.doj.day;
+			e1.doj.month;
+			e1.doj.year;
+</pre>
+<h3>1.3.11 Pointers and Structures</h3>
+<p>The pointer variable to structure variable is declared as</p>
+  		<pre>struct employee *emp;</pre>
+<h3>1.3.12 Access the Pointer in Structures</h3>
+<p>Access using arrow operator(->) instead of period operator(.).</p>
+<pre>	For Example:
+		 emp->name;  emp->emp_id;  
+</pre>
+
+<h3>1.3.13 Passing Structure to Function</h3>
+<pre>
+For Example:
+printdata (struct employee e1); // Function calling
+
+void printdata( struct employee emp) // Function defnition
+{
+    ....
+}
+</pre>
+<h3>Function Returning Structure</h3>
+<pre>	struct employee getdata( )
+  	{
+      ...
+ 	  return e1;
+    }
+</pre>
+
+
+</body>

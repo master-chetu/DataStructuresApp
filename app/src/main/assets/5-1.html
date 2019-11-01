@@ -1,0 +1,233 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>5.1 Graph Terminologies</h3>
+<h3>Definition of Graphs</h3>
+<ul>
+<li>A graph G = (V, E) consists of a set of vertices, V, and a set of edges, E. </li>
+<li>Each edge is a pair (v,w), where v,w are vertices.  Edges are sometimes referred to as arcs. </li>
+<li>If the pair is ordered, then the graph is directed. Directed graphs are sometimes referred to as digraphs.</li>
+</ul>
+
+<img src="g1.png" style="width:200px;height:150px;margin-left:30px">
+</br></br>
+<img src="g2.png" style="width:200px;height:150px;margin-left:30px">
+
+
+<h3>5.1.1 Graphs - Terms</h3>
+<ul>
+<li><b>Adjacency : </b>Vertex w is adjacent to v if and only if (v,w)&isin;E.  In an undirected graph with edge (v,w), and hence (w,v), w is adjacent to v and v is adjacent to w. </li>
+</br>
+<li><b>Edge Weight : </b>Sometimes an edge has a third component, known as either a weight or a cost.</li>
+</br>
+<li><b>Path : </b>A path in a graph is a sequence of vertices w<sub>1</sub>, w<sub>2</sub>, w<sub>3</sub>, . . . , w<sub>n</sub> such that (w<sub>i</sub>, w<sub>i+1</sub>) &isin; E for 1&lt;= i &lt; n. The length of such a path is the number of edges on the path, which is equal to n - 1.</li>
+</br>
+<li><b>Loop : </b>An edge from a node to itself (v,v) is called loop.</li>
+</br>
+<li><b>Cycle : </b>A cycle in a directed graph is a path of length at least 1 such that w<sub>1</sub>= w<sub>n</sub>.  A grpah with atleast one cycle is called an acyclic graph.</li>
+</br>
+<li><b>Acyclic Graph : </b>Graph with no cycles - (DAG for directed )</li>
+</ul>
+
+
+<p>Let G be a directed graph</p>
+<ul>
+<li>The in degree of a node x in G is the number of edges coming towards x.</li>
+<li>The out degree of x is the number of edges leaving x.</li>
+</ul>
+<p>Let G be an undirected graph</p>
+<ul>
+<li>The degree of a node x is the number of edges that have x as one of their end nodes</li>
+<li>The neighbors of x are the nodes adjacent to x</li>
+</ul>
+
+
+<li><b>V={0,1,2,3,4}</b></li>
+<li><b>E={(0,1), (1,2), (0,3), (3,0), (2,2), (4,3)}</b></li>
+</br>
+<img src="g3.png" style="width:200px;height:150px;margin-left:30px">
+
+
+<p>When (x,y) is an edge, we say that x is adjacent to y, and y is adjacent from x.</p>
+<ul>
+<li>0 is adjacent to 1.</li>
+<li>1 is not adjacent to 0.</li>
+<li>2 is adjacent from 1.</li>
+</ul>
+
+
+
+<li><b>Connected Graph :</b> An undirected graph is connected if there is a path from every vertex to every other vertex.</li>
+<img src="g4.png" style="width:200px;height:150px;margin-left:30px">
+</br></br>
+<img src="g5.png" style="width:200px;height:150px;margin-left:30px">
+</br></br>
+
+<li><b>Complete Graph : </b>A graph in which there is an edge between every pair of vertices is called complete graph.
+<img src="g6.png" style="width:300px;height:120px;margin-left:30px">
+</br></br>
+
+<li><b>Strongly connected Graph : </b>A directed graph with this connectivity property is called strongly connected.</li>
+<img src="g7.png" style="width:300px;height:120px;margin-left:30px">
+
+</br></br>
+
+<li><b>Weakly connected Graph: </b>If a directed graph is not strongly connected, but the underlying graph (without direction to the arcs) is connected, then the graph is said to be weakly connected. </li>
+<img src="g8.png" style="width:200px;height:120px;margin-left:30px">
+
+
+<h3>5.1.2 Graphs Representation</h3>
+
+<h3>Adjacency matrix representation</h3>
+<p>Each graph of n nodes is represented by an n x n matrix A, that is, a two-dimensional array A. </p>
+<ul>
+<li>A[i][j] = 1 if (i,j) is an edge</li>
+<li>A[i][j] = 0 if (i,j) is not an edge</li>
+</ul>
+
+<img src="g9.png" style="width:250px;height:100px;margin-left:30px">
+</br></br>
+<img src="g10.png" style="width:250px;height:100px;margin-left:30px">
+</br></br>
+
+<li><b>Pros:</b></li>
+<ul>
+<li>Simple to implement</li>
+<li>Easy and fast to tell if a pair (i,j) is an edge by checking if A[i][j] is 1 or 0</li>
+</ul>
+<li><b>Cons:</b></li>
+<ul>
+<li>No matter how few edges the graph has, the matrix takes O(n<sup>2</sup>) in memory</li>
+</ul>
+
+<h3>Adjacency lists representation</h3>
+<ul>
+<li>A graph of n nodes is represented by a one-dimensional array L of linked lists, where L[i] is the linked list containing all the nodes adjacent from node i.  </li>
+<li>The nodes in the list L[i] are in no particular order</li>
+</ul>
+<img src="g11.png" style="width:250px;height:100px;margin-left:30px">
+</br></br>
+<img src="g12.png" style="width:250px;height:100px;margin-left:30px">
+
+
+<li><b>Pros:</b></li>
+<ul>
+<li>Saves on space (memory): </li>
+<li>the representation takes as many memory words as there are nodes and edge.</li>
+</ul>
+<li><b>Cons:</b></li>
+<ul>
+<li>It can take up to O(n) time to determine if a pair of nodes (i,j) is an edge: </li>
+<li>one would have to search the linked list L[i], which takes time proportional to the length of L[i].</li>
+</ul>
+
+<h3>5.1.3 Graph Traversals</h3>
+<ul>
+<li>Walk through a graph systematically in a predefined order is called as graph traversal.</li>
+<li>That is graph traversal (also known as graph search) refers to the process of visiting (checking and/or updating) each vertex in a graph. Such traversals are classified by the order in which the vertices are visited.</li>
+<li>Types</li>
+<ul>
+<li>Depth-First Search (DFS)</li>
+<li>Breadth-First Search (BFS)</li>
+<li>Topological Sorting</li>
+</ul>
+</ul>
+
+<h3>5.1.4 Depth-First Search (DFS)</h3>
+<ol>
+<li>Select an unvisited node x, visit it, and treat as the current node </li>
+<li>Find an unvisited neighbor of the current node, visit it, and make it the new current node; </li>
+<li>If the current node has no unvisited neighbors, backtrack to the parent, and make that parent the new current node; </li>
+<li>Repeat steps 3 and 4 until no more nodes can be visited. </li>
+<li>If there are still unvisited nodes, repeat from step 1. </li>
+</ol>
+
+<h3>Illustration of DFS</h3>
+<img src="g13.png" style="width:250px;height:200px;margin-left:30px">
+</br></br>
+<img src="g14.png" style="width:250px;height:300px;margin-left:30px">
+
+<h3>Depth-First Search (DFS) – Pseudo code</h3>
+<img src="g15.png" style="width:300px;height:350px;margin-left:30px">
+
+<h3>Illustration of DFS</h3>
+<img src="g16.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g17.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g18.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g19.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g20.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g21.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g22.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+
+<h3>5.1.5 Breadth-First Search (BFS)</h3>
+<ol>
+<li>Select an unvisited node x, visit it, have it be the root in a BFS tree being formed. Its level is called the current level. </li>
+<li>From each node z in the current level, in the order in which the level nodes were visited, visit all the unvisited neighbors of z. </li>
+<li>The newly visited nodes from this level form a new level that becomes the next current level. </li>
+<li>Repeat step 2 and 3 until no more nodes can be visited. </li>
+<li>If there are still unvisited nodes, repeat from Step 1.</li>
+</ol>
+
+
+<h3>Illustration of BFS</h3>
+<img src="g23.png" style="width:200px;height:200px;margin-left:30px">
+</br></br>
+<img src="g24.png" style="width:200px;height:200px;margin-left:30px">
+
+<h3>Breadth-First Search (BFS) –Pseudo code</h3>
+<img src="g25.png" style="width:300px;height:350px;margin-left:30px">
+
+<h3>Illustration of BFS</h3>
+<img src="g26.png" style="width:300px;height:200px;margin-left:30px">
+
+<h3>5.1.6 Topological Sorting</h3>
+<ul>
+<li>A topological sort is an ordering of vertices in a directed acyclic graph, such that if there is a path from v<sub>i</sub> to v<sub>j</sub>, then v<sub>j</sub> appears after v<sub>i</sub> in the ordering.</li>
+<li>A topological ordering is not possible if the graph has a cycle, since for two vertices v and w on the cycle, v precedes w and w precedes v.</li>
+<li>A simple algorithm to find a topological ordering is</li> 
+<ul>
+<li>First find any vertex with no incoming edges. </li>
+<li>Then print this vertex, and remove it, along with its edges, from the graph. </li>
+<li>Then apply this same strategy to the rest of the graph.</li>
+</ul>
+</ul>
+
+<p>Consider following acyclic graph</p>
+<img src="g27.png" style="width:300px;height:200px;margin-left:30px">
+
+<p>In this graph there are more than one Topological orderings</p>
+<ol>
+<li>v<sub>1</sub>, v<sub>2</sub>, v<sub>5</sub>, v<sub>4</sub>, v<sub>3</sub>, v<sub>7</sub>, v<sub>6</sub></li>
+<li>v<sub>1</sub>, v<sub>2</sub>, v<sub>5</sub>, v<sub>4</sub>, v<sub>7</sub>, v<sub>3</sub>, v<sub>6</sub></li>
+</ol>
+<img src="g28.png" style="width:300px;height:350px;margin-left:30px">
+
+<h3>Topological Sorting - Pseudo Code</h3>
+<img src="g29.png" style="width:300px;height:350px;margin-left:30px">
+
+
+
+
+
+
+</body>

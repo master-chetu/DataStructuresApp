@@ -1,0 +1,84 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+
+<h3>2.2 Stack</h3>
+<ul>
+<li>Stack is an ordered group of homogeneous items of elements.</li>
+<li>Elements are added to and removed from one end called the top of the stack.</li>
+<li>Most recently added item will be at the top of the stack and hence it will be removed first.</li> 
+<li>That is the last element to be added is the first to be removed. So stack is said to follow the queue discipline LIFO: Last In, First Out.</li>
+</ul>
+<br>
+<img src="s1.png" style="width:350px;height:150px;">
+<br>
+
+<h3>2.2.1 Operation on Stack</h3>
+<p>Push and Pop are main operations of stack and other operations can be created based on need.</p>
+<ul>
+<li>Push - Inserting an Element in to stack.</li>
+<li>Pop - Removing an element from top of stack.</li>
+<li>ViewTop - View the top element in the stack.</li>
+<li>ViewStack - Content of Stack can be displayed.</li>
+<li>MakeEmpty - All elements in Stack are entirely removed.</li>
+<li>IsEmpty - Returns true if the stack has no elements.</li>
+<li>IsFull - Returns true if element can not be pushed into stack.</li>
+</ul>
+
+<h3>2.2.2 Applications of Stack</h3>
+<ul>
+<li>Expression Conversion
+	<ul>
+	<li>Infix to Postfix</li>
+	<li>Infix to Prefix</li>
+	<li>Postfix to Infix</li>
+	<li>Prefix to Infix</li>
+	</ul>
+</li>
+<li>Postfix Expression Evaluation</li>
+<li>Balanced Parenthesis Checking</li>
+<li>Parsing</li>
+<li>Recursive Function</li>
+<li>Function Calling</li>
+</ul>
+
+
+<h3>2.2.3 Implementation of Stack</h3>
+<p>Array</p>
+<li>Gives best performance but has  size limitation</li>
+<p>Vector</p>
+<li>Identical to array version </li>
+<li>Can only grow but can’t shrink</li>
+<p>Linked List </p>
+<li>No size restriction but slower compared to other methods.</li>
+
+
+<pre style="color:#C4DFE6;font-family:tamoha;font-size:110%">
+#define EmptyTOS -1  // when stack is empty , array index will be -1
+
+struct StackRecord;
+typedef struct StackRecord *Stack;
+
+struct StackRecord
+{
+	    int Capacity;    // keeps the maximum size of array
+	    int TopOfStack;  //always points to top element
+	    int *Array;
+};
+</pre>
+</body>

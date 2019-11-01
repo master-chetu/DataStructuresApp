@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="one3">
+        <item>Binary search tree is an example of complete binary tree with special attributes.</item>
+        <item>BST does not care about complete binary tree properties</item>
+        <item>BST takes care of complete binary tree properties.</item>
+        <item>It depends upon the input.</item>
+        <item>None of the above.</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="two3">
+        <item>A binary search tree whose left subtree and right subtree differ in hight by at most 1 unit is called .....</item>
+        <item>Lemma tree</item>
+        <item>Redblack tree</item>
+        <item>AVL tree</item>
+        <item>None of the above</item>
+        <item>3</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="three3">
+        <item>In Binary trees nodes with no successor are called......</item>
+        <item>End nodes</item>
+        <item>Final nodes</item>
+        <item>Last nodes</item>
+        <item>Terminal nodes</item>
+        <item>3</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="four3">
+        <item>Every node N in a binary tree T except the root has a unique parent called the ......... of N.</item>
+        <item>Predecessor</item>
+        <item>Antecedents</item>
+        <item>Precursor</item>
+        <item>None of the above</item>
+        <item>0</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="five3">
+        <item>The in order traversal of tree will yield a sorted listing of elements of tree in....</item>
+        <item>Merging</item>
+        <item>AVL Trees</item>
+        <item>Binary trees</item>
+        <item>Binary search trees</item>
+        <item>3</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="six3">
+        <item>A full binary tree with 2n+1 nodes contain</item>
+        <item>n leaf nodes</item>
+        <item>n non-leaf nodes</item>
+        <item>n-1 leaf nodes</item>
+        <item>n-1 non-leaf nodes</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+</resources>

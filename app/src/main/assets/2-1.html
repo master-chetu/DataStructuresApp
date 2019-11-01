@@ -1,0 +1,114 @@
+<body style="background-color:#303030;"> 
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<style>
+	h3{
+	color:#65A5AD
+	}
+</style>
+<style>
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+<h3>2.1 Abstract Data Types</h3>
+<ul>
+<li>An abstract data type (ADT) is a set of operations.</li>
+<li>Abstract data types are mathematical abstractions.</li> 
+<li>In an ADT’s definition,  there  is no mention of how the set of operations is implemented.</li>
+<li>Objects such as lists, sets, and graphs, along with their operations, can be viewed as abstract data types, just as integers, reals, and booleans are data types. </li>
+<li>Integers, reals, and booleans have operations associated with them, and so do ADTs.</li>
+<li>The basic idea is that the implementation of the operations related to ADTs is written once in the program, and any other part of the program that needs to perform an operation on the ADT can do so by calling the appropriate function. </li>
+<li>If for some reason implementation details need to be changed, it should be easy to do so by merely changing the routings that perform the ADT operations. </li>
+<li>There is no rule telling us which operations must be supported for each ADT; this is a design decision.</li>
+</ul>
+<h3>2.1.1 The List ADT</h3>
+<ul>
+<li>The form of a general list: A1, A2, A3, ..., AN.</li>
+<li>The size of this list is N.</li>
+<li>An empty list is a special list of size 0.</li>
+<li>For any list except the empty list, we say that Ai+1 follows or succeeds Ai (i<N) and that Ai-1 precedes Ai (i>1).</li>
+<li>The first element of the list is A1, and the last element is AN. We will not define the predecessor of A1 or the successor of AN.</li>
+<li>The position of element Ai in a list is i.</li>
+</ul>
+<h3>2.1.2 Set of operations on the list ADT:</h3>
+<ul>
+<li>PrintList</li>
+<li>MakeEmpty</li>
+<li>Find : return the position of the first occurrence of a key</li>
+<li>Insert and Delete : insert and delete some key from some position in the list</li>
+<li>FindKth : return the element in some position</li>
+<li>Next and Previous : take a position as argument and return the position of the successor and predecessor</li>
+</ul>
+<h3>2.1.3 Simple Array Implementation of Lists</h3>
+<p>All these functions about lists can be implemented by using an array.</p>
+<ul>
+<li>PrintList</li>
+<li>MakeEmpty</li>
+<li>Find</li>
+<li>Insert</li>
+<li>Delete</li>
+<li>Next</li>
+<li>Previous</li>
+</ul>
+<h3>2.1.4 Disadvantages</h3>
+<ul>
+<li>An estimate of the maximum size of the list is required, even if the array is dynamically allocated.</li> 
+<li>Usually this requires a high overestimate, which wastes considerable space.</li>
+<li>Insertion and deletion are expensive. For example, inserting at position 0 requires first pushing the entire array down one spot to make room. </li>
+</ul>
+<h3>2.1.5 Linked Lists</h3>
+<ul>
+<li>Linked list is a data structure which contains list of elements  which are not necessarily adjacent in memory.</li>
+<li>Each structure contains the element and a pointer to a structure containing its successor. We call this as the Next pointer.</li>
+<li>The last cell's Next pointer points to NULL.</li>
+<li>Linked lists are used when number of data is not known in prior.</li>
+</ul>
+<br>
+<img src="ll1.png" style="width:300px;height:50px;">
+<br>
+<br>
+<li>Linked list consists of a chain of elements, in which each element is referred as a node.</li>
+<li>A node is a basic building block of a linked list.</li>
+<li>A node consists of two parts : 
+<br>Data : Refers to the information hold by the node
+<br>Next : Contains the address of next node in the List
+</li>
+<br>
+<img src="ll2.png" style="width:300px;height:50px;">
+<br>
+<h3>2.1.6 Linked Lists - Operations</h3>
+<li>To execute PrintList(L) or Find(L, Key), we merely pass a pointer to the first element in the list and then traverse the list by following the Next pointers.</li>
+<li>The Delete command can be executed in one pointer change.</li>
+<br>
+<img src="ll3.png" style="width:300px;height:50px;">
+<br>
+<br>
+<li>The Insert command requires obtaining a new cell from the system by using a malloc call and then executing two pointer modifications</li>
+<br>
+<img src="ll4.png" style="width:300px;height:50px;">
+<br>
+<h3>2.1.7 Linked Lists - Issues</h3>
+<ul>
+<li>There is no really obvious way to insert at the front of the list from the definitions given.</li>
+<li>Deleting from the front of the list is a special case, because it changes the start of the list; careless coding will lose the list.</li>
+<li>A third problem concerns deletion in general. Although the pointer moves above are simple, the deletion algorithm requires us to keep track of the cell before the one that we want to delete.</li>
+</ul>
+
+<h3>2.1.8 Problems with LL & Alternatives</h3>
+<ul>
+<li>LL allows traversal of the list in only one direction</li>
+<li>Deleting a node from the list requires keeping track of previous node.</li>
+<li>If the link in any node gets corrupted the remaining nodes of the list becomes inaccessible and unusable.</li>
+<li>Alternatives : Doubly Linked List, Circular Linked List.</li>
+</ul>
+
+
+
+
+
+</body>

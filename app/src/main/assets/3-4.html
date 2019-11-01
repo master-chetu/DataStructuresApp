@@ -1,0 +1,104 @@
+<body style="background-color:#303030;">  
+<style>
+	li{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	h3{
+	color:#65A5AD
+	}
+	p{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+	pre{
+	color:#C4DFE6;font-family:tamoha;font-size:110%
+	}
+</style>
+
+<h3>3.4 Binary Search Trees</h3>
+
+<li>In a binary search tree , for every node, X, in the tree, the values of all the keys in the left subtree are smaller than the key value in X, and the values of all the keys in the right subtree are larger than the key value in X.</li>
+
+<li>In following tree, identify BST.</li>
+
+<img src="bst1.jpg" style="width:300px;height:125px;margin-left:30px">
+
+<h3>Supports following dynamic set operations</h3>
+<ul>
+<li>Make the tree Empty</li>
+<li>Find an Element	</li>
+<li>Find a Minimum element in tree</li>
+<li>Find a Maximum element in tree	</li>
+<li>Insert an Element</li>
+<li>Delete an Element</li>
+</ul>
+<h3>Can be used to build</h3>
+<ul>
+<li>Dictionaries.</li>
+<li>Priority Queues.</li>
+</ul>
+<li>Basic operations take time proportional to the height of the tree - O(h).</li>
+
+<h3>Node Representation</h3>
+<img src="bst2.png" style="width:300px;height:125px;margin-left:30px">
+
+
+<li>Use create node procedure to allocate memeory and make left and right to point to NULL.</li>
+<h3>Make the tree empty</h3>
+<img src="bst3.png" style="width:300px;height:80px;margin-left:30px">
+
+
+<h3>Find Operation</h3>
+<img src="bst4.png" style="width:300px;height:200px;margin-left:30px">
+
+
+<li>If T is NULL, then we can just return NULL. </li>
+<li>Otherwise, if the key stored at T is x, we can return T.</li>
+<li>Otherwise, we make a recursive call on a subtree of T, either left or    right, depending on the relationship of x to the key stored in T.</li>
+
+<h3>Binary Search Tree - FindMin Operation</h3>
+<img src="bst5.png" style="width:300px;height:250px;margin-left:30px">
+<li>To perform a find_min, start at the root and go left as long as there is a left child. </li>
+<li>The stopping point is the smallest element.</li>
+
+<h3>Binary Search Tree - FindMax Operation</h3>
+<img src="bst6.png" style="width:300px;height:250px;margin-left:30px">
+<li>To perform a find_max, start at the root and go right as long as there is a right child. </li>
+<li>The stopping point is the largest element.</li>
+
+<h3>FindMin - Non Recursive Version</h3>
+<img src="bst7.png" style="width:300px;height:250px;margin-left:30px">
+
+<h3>FindMax - Non Recursive Version</h3>
+<img src="bst8.png" style="width:300px;height:250px;margin-left:30px">
+
+<h3>Binary Search Tree - Insert Operation</h3>
+<li>Start from the root node if one such exists. Otherwise make this as root node</li>
+<li>If the node to insert is less than the root, go to left child otherwise  go to the right child of the root. </li>
+<li>Continue this process (each node is a root for some sub tree) until a null pointer  or leaf node is found and can not go any further. </li>
+<li>If value at current node and new value are equal, no need to insert new value since already it exists in BST.</li>
+<li>Insert the node as a left child if new value is less than current nodes key value.</li>
+<li>Otherwise insert the node as a right child since new value is  greater than current node. </li>
+<li>A new node is always inserted as a leaf node.</li>
+<img src="bst9.png" style="width:300px;height:350px;margin-left:30px">
+
+<h3>Binary Search Tree - Deletion Operation</h3>
+<li>In trees, the hardest operation is deletion.</li>
+<li>If the node is a leaf, it can be deleted immediately.</li>	
+<li>If the node has one child, the node can be deleted after its parent adjusts a pointer to bypass the node.</li>
+<img src="bst10.png" style="width:300px;height:180px;margin-left:30px">
+
+<p>To delete a node with two children, </p>
+<li>replace the key of this node with the smallest key of the right subtree and </li>
+<li>recursively delete that node.</li>
+<img src="bst11.png" style="width:300px;height:180px;margin-left:30px">
+</br>
+</br>
+<img src="bst12.png" style="width:300px;height:250px;margin-left:30px">
+<img src="bst13.png" style="width:300px;height:180px;margin-left:30px">
+
+
+
+
+
+
+</body>
